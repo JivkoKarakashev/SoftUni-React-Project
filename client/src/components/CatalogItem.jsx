@@ -2,13 +2,19 @@
 import styles from "./CatalogPage.module.css";
 
 const CatalogItem = ({
+    _id,
     make,
     model,
     fuel,
     year,
     image,
-    price
+    price,
+    onDetailsClick
 }) => {
+    const onDetailsClickHandler = () => {
+        onDetailsClick(_id);
+    };
+
     return (
         <li className={styles["item"]}>
             <header className={styles["pad-med"]}>
@@ -23,7 +29,7 @@ const CatalogItem = ({
                 <p>Fuel: <strong>{fuel}</strong></p>
                 <p>Year: <strong>{year}</strong></p>
                 <p>Price: <strong>{price}$</strong></p>
-                <a className={styles["action"]} href="/details/:id">See details</a>
+                <a className={styles["action"]} href="#" onClick={onDetailsClickHandler}>See details</a>
             </footer>
         </li>
     );

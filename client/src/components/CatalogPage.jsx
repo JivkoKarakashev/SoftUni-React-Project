@@ -9,11 +9,16 @@ const CatalogPage = () => {
     useEffect(() => {
         getAll()
             .then(result => {
-                const carsEntries = Object.entries(Object.values(result)[0]);
+                const carsEntries = Object.values(result);
                 // console.log(carsEntries);
                 setCars(carsEntries);
             });
     }, []);
+
+    const detailsClickHandler = (carId) => {
+        //TO DO...
+        console.log(carId);
+    };
     
     return (
         // <--Catalog Page-->
@@ -22,7 +27,7 @@ const CatalogPage = () => {
             <ul className={`${styles["catalog"]} ${styles["cards"]}`}>
                 {/* {console.log(cars)} */}
                 {cars.map((car) => 
-                    <CatalogItem key={car[1]['_id']}{...car[1]}/>
+                    <CatalogItem key={car['_id']}{...car} onDetailsClick={detailsClickHandler}/>
                 )}                
             </ul>
             <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
