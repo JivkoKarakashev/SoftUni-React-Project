@@ -1,0 +1,7 @@
+html {
+    background-color: hsl(var(--primary-color), calc(var(--primary-s) - 30%), calc(var(--primary-l) + 15%));
+}
+
+html {
+    margin: 0;
+}

@@ -1,0 +1,68 @@
+/* Header and navigation menu */
+
+.title-logo {
+    display: block;
+    float: left;
+    width: 200px;
+    text-decoration: none;
+    color: white;
+}
+
+.title-logo:hover {
+    background-color: hsl(var(--secondary-color), var(--secondary-s), var(--secondary-l));
+}
+
+.title-logo img {
+    height: 64px;
+}
+
+.title-logo>img {
+    display: block;
+    float: left;
+    margin-right: 16px;
+}
+
+.title-logo>span {
+    font-size: 24px;
+    display: block;
+    padding: 4px;
+}
+
+.main-nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.nav-mid {
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: inline-block;
+}
+
+.main-nav li {
+    display: block;
+    float: left;
+}
+
+.main-nav a {
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    margin: 4px;
+}
+
+.main-nav a,
+.main-nav a:visited {
+    border-radius: 10px;
+    background-color: hsl(var(--secondary-color), var(--secondary-s), calc(var(--secondary-l) - 20%));
+    color: white;
+}
+
+.main-nav a:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--secondary-color), var(--secondary-s), var(--secondary-l));
+}

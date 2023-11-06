@@ -1,0 +1,73 @@
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+.padded>* {
+    padding: 8px 16px;
+}
+
+.layout {
+    padding: 0;
+}
+
+.layout.right.large .content {
+    margin-right: 400px;
+}
+
+.layout.large .col {
+    width: 400px;
+}
+
+.layout.right .col {
+    float: right;
+}
+
+.img-large {
+    display: block;
+    max-width: 400px;
+}
+
+.pad-med {
+    padding: 8px 16px;
+}
+
+.catalog {
+    list-style: none;
+    padding: 0;
+}
+
+main label input[type="checkbox"] {
+    width: 32px;
+}
+
+.facility-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.action {
+    display: inline-block;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+    color: white;
+}
+
+.action:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+    cursor: pointer;
+    color: white;
+}
+
+.cta {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}

@@ -1,0 +1,45 @@
+@import url('../public/static/vars.css');
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.page-content {
+    position: relative;
+    max-width: 980px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.page-content>main {
+    padding-bottom: 48px;
+}
+
+.page-content,
+.page-content>main {
+    background-color: hsl(var(--primary-color), calc(var(--primary-s) - 35%), calc(var(--primary-l) + 35%));
+}
+
+.page-content>header {
+    position: relative;
+    height: 64px;
+}
+
+.page-content>footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.page-content>header,
+.page-content>footer {
+    background-color: hsl(var(--primary-color), calc(var(--primary-s) - 25%), calc(var(--primary-l) - 5%));
+}

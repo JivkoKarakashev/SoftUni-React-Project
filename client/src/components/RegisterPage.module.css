@@ -1,0 +1,65 @@
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+.padded>* {
+    padding: 8px 16px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.layout {
+    padding: 0;
+}
+
+.layout.left.large .content {
+    margin-left: 400px;
+}
+
+.aligned {
+    text-align: right;
+    display: inline-block;
+}
+
+form label {
+    display: block;
+}
+
+.aligned label>* {
+    margin: 8px 16px;
+}
+
+main label input,
+main label select {
+    width: 200px;
+}
+
+
+.action {
+    display: inline-block;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+    color: white;
+}
+
+.action:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+    cursor: pointer;
+    color: white;
+}
+
+.cta {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}

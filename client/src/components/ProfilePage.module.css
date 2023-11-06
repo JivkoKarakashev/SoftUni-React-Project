@@ -1,0 +1,100 @@
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+.padded>* {
+    padding: 8px 16px;
+}
+
+.pad-large {
+    padding: 32px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.userInfo {
+    width: 500px;
+    margin: 120px auto 12px;
+    background-color: #fff;
+    padding: 0 20px 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    height: 200px;
+}
+
+.avatar {
+    border-radius: 100px;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: auto;
+    top: -60px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+.avatar img {
+    width: 150px;
+    height: 150px;
+}
+
+.event-info {
+    padding: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.event-info>img {
+    margin-top: -10px;
+    border-radius: 50%;
+    height: 120px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    float: right;
+    padding: 5px;
+    width: 120px;
+}
+
+.event-info>h6 {
+    font-size: 16px;
+    text-align: right;
+    font-weight: 750;
+    color: #161618;
+    font-weight: lighter;
+}
+
+.event-info>h2 {
+    font-size: 18px;
+    text-align: right;
+    font-weight: 750;
+    color: #161618;
+    font-weight: bold;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.action {
+    display: inline-block;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+    color: white;
+}
+
+.action:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+    cursor: pointer;
+    color: white;
+}

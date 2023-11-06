@@ -1,0 +1,95 @@
+.spaced>* {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+.catalog {
+    list-style: none;
+    padding: 0;
+}
+
+.catalog.cards {
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.catalog.cards::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.catalog.cards li {
+    float: left;
+    width: 284px;
+    margin: 16px;
+    margin-top: 0;
+}
+
+.pad-med {
+    padding: 8px 16px;
+}
+
+.catalog.cards h2 {
+    height: 52px;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 125%;
+}
+
+.catalog.cards li>main {
+    height: 200px;
+    overflow: hidden;
+}
+
+.align-center {
+    text-align: center;
+}
+
+main {
+    padding-bottom: 32px;
+}
+
+main>img {
+    width: 284px;
+    height: 168px;
+}
+
+.catalog.cards footer {
+    overflow: hidden;
+}
+
+footer {
+    background-color: hsl(var(--primary-color), var(--primary-s), calc(var(--primary-l) - 5%));
+    color: white;
+}
+
+.action {
+    display: inline-block;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+    color: white;
+}
+
+.action:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+    cursor: pointer;
+    color: white;
+}
+
+.pad-large {
+    padding: 32px;
+}

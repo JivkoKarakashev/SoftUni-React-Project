@@ -1,0 +1,75 @@
+section {
+    margin: 32px;
+}
+
+.item {
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 150%;
+    padding: 16px;
+}
+
+h1,
+header {
+    background-color: hsl(var(--primary-color), var(--primary-s), var(--primary-l));
+}
+
+.layout {
+    padding: 0;
+}
+
+main {
+    background-color: white;
+}
+
+.layout.left.med .content {
+    margin-left: 300px;
+    height: 300px;
+}
+
+.layout.left .col {
+    float: left;
+}
+
+.layout.med .col {
+    width: 300px;
+}
+
+.img-med {
+    display: block;
+    max-width: 300px;
+}
+
+.pad-med {
+    padding: 8px 16px;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.action {
+    display: inline-block;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+    color: white;
+}
+
+.action:hover {
+    border-radius: 10px;
+    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+    cursor: pointer;
+    color: white;
+}
