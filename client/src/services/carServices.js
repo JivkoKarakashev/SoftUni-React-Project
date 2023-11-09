@@ -1,11 +1,13 @@
 import { get, post } from "./api";
 
 const getAll = async () => {
-    return await get('/jsonstore/cars');
+    const ads = await get('/jsonstore/cars');
+    return ads;
 };
 
 const getOne = async (carId) => {
-    return await get(`/jsonstore/cars/${carId}`)
+    const ad = await get(`/jsonstore/cars/${carId}`);
+    return ad;
 };
 
 const create = async (data) => {

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./ProfilePage.module.css";
 
 const ProfilePage = () => {
@@ -24,7 +26,7 @@ const ProfilePage = () => {
                             <h2>make - model</h2>
                             <h6>year</h6>
                             <div className={styles["align-right"]}>
-                                <a href="/details/:id" className={styles["action"]}>Details</a>
+                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
                             </div>
                         </div>
                     </main>
@@ -37,7 +39,7 @@ const ProfilePage = () => {
                             <h2>make - model</h2>
                             <h6>year</h6>
                             <div className={styles["align-right"]}>
-                                <a href="/details/:id" className={styles["action"]}>Details</a>
+                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
                             </div>
                         </div>
                     </main>
@@ -50,7 +52,7 @@ const ProfilePage = () => {
                             <h2>make - model</h2>
                             <h6>year</h6>
                             <div className={styles["align-right"]}>
-                                <a href="/details/:id" className={styles["action"]}>Details</a>
+                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
                             </div>
                         </div>
                     </main>

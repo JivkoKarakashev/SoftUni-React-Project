@@ -18,7 +18,7 @@ const formInitialState = {
 const CreatePage = () => {
 
     const [formValues, setFormValues] = useState(formInitialState);
-    const [formErrors, setformErrors] = useState(formInitialState);
+    const [showErrorFields, setshowErrorFields] = useState(formInitialState);
     const [showErrorBox, setShowErrorBox] = useState(formInitialState);
 
     const changeHandler = (e) => {
@@ -42,7 +42,7 @@ const CreatePage = () => {
             await create(formValues);
             resetFormHandler();            
         } catch (err) {
-            window.alert(err.message);
+            console.log(err.message);
         }
     };
 
@@ -51,12 +51,12 @@ const CreatePage = () => {
         const currField = e.target.name;
         const currFieldValue = e.target.value;
         if (currFieldValue == '') {
-            setformErrors(state => ({
+            setshowErrorFields(state => ({
                 ...state,
                 [currField]: `${currField} is required!`
             }));
         } else {
-            setformErrors(state => ({
+            setshowErrorFields(state => ({
                 ...state,
                 [currField]: ''
             }));
@@ -75,7 +75,16 @@ const CreatePage = () => {
                 errors[key] = '';
             }
         }
-        setShowErrorBox(errors);
+
+        setshowErrorFields(state => ({
+            ...state,
+            ...errors
+        }));
+
+        setShowErrorBox(state => ({
+            ...state,
+            ...errors
+        }));
         throw Error('All fields are required!')
     }
 
@@ -93,17 +102,17 @@ const CreatePage = () => {
                         </div>
                     )}
                     <div className={`${styles["col"]} ${styles["aligned"]}`}>
-                        <label><span>Make</span><input type="text" name="make" value={formValues.make} className={formErrors['make'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Model</span><input type="text" name="model" value={formValues.model} className={formErrors['model'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Mileage</span><input type="number" name="mileage" value={formValues.mileage} className={formErrors['mileage'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Fuel</span><input type="text" name="fuel" value={formValues.fuel} className={formErrors['fuel'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Year</span><input type="number" name="year" value={formValues.year} className={formErrors['year'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Location</span><input type="text" name="location" value={formValues.location} className={formErrors['location'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Image</span><input type="text" name="image" value={formValues.image} className={formErrors['image'] && styles["field-error"]} onChange={changeHandler} /></label>
-                        <label><span>Price</span><input type="number" step="any" name="price" value={formValues.price} className={formErrors['price'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Make</span><input type="text" name="make" value={formValues.make} className={showErrorFields['make'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Model</span><input type="text" name="model" value={formValues.model} className={showErrorFields['model'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Mileage</span><input type="number" name="mileage" value={formValues.mileage} className={showErrorFields['mileage'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Fuel</span><input type="text" name="fuel" value={formValues.fuel} className={showErrorFields['fuel'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Year</span><input type="number" name="year" value={formValues.year} className={showErrorFields['year'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Location</span><input type="text" name="location" value={formValues.location} className={showErrorFields['location'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Image</span><input type="text" name="image" value={formValues.image} className={showErrorFields['image'] && styles["field-error"]} onChange={changeHandler} /></label>
+                        <label><span>Price</span><input type="number" step="any" name="price" value={formValues.price} className={showErrorFields['price'] && styles["field-error"]} onChange={changeHandler} /></label>
                     </div>
                     <div className={`${styles["content"]} ${styles["pad-med"]} ${styles["align-center"]} ${styles["vertical"]}`}>
-                        <label><span>Description</span><textarea name="description" value={formValues.description} className={formErrors['description'] && styles["field-error"]} onChange={changeHandler} ></textarea></label>
+                        <label><span>Description</span><textarea name="description" value={formValues.description} className={showErrorFields['description'] && styles["field-error"]} onChange={changeHandler} ></textarea></label>
                         <div className={styles["align-center"]}>
                             <input className={styles["action"]} type="submit" value="Publish Item" />
                         </div>

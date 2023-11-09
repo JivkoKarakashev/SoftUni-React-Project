@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./RegisterPage.module.css";
 
 const RegisterPage = () => {
@@ -16,7 +18,7 @@ const RegisterPage = () => {
                         <input className={`${styles["cta"]} ${styles["action"]}`} type="submit" value="Sign Up" />
                     </form>
                 </main>
-                <footer>Already have an account? <a href="/auth/login">Sign in here</a></footer>
+                <footer>Already have an account? <Link to="/auth/login">Sign in here</Link></footer>
             </div>
         </section>
     );

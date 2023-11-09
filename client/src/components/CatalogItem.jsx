@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+
 import styles from "./CatalogPage.module.css";
 
 const CatalogItem = ({
@@ -29,7 +31,7 @@ const CatalogItem = ({
                 <p>Fuel: <strong>{fuel}</strong></p>
                 <p>Year: <strong>{year}</strong></p>
                 <p>Price: <strong>{price}$</strong></p>
-                <a className={styles["action"]} href="#" onClick={onDetailsClickHandler}>See details</a>
+                <Link className={styles["action"]} to="/details/:id" onClick={onDetailsClickHandler}>See details</Link>
             </footer>
         </li>
     );

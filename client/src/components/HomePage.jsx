@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -14,8 +16,8 @@ const HomePage = () => {
                         <p>Welcome to Used Cars Market!</p>
                         <p>Quickly find your desired car at the largest European online Market!</p>
                         <div className={styles["align-center"]}>
-                            <a className={styles["action"]} href="/catalog">Catalog</a>
-                            <a className={styles["action"]} href="/create">Publish Ad</a>
+                            <Link className={styles["action"]} to="/catalog">Catalog</Link>
+                            <Link className={styles["action"]} to="/create">Publish Ad</Link>
                         </div>
                     </div>
                 </main>

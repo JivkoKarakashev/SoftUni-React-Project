@@ -1,7 +1,9 @@
-import styles from "./CatalogPage.module.css";
 import { useEffect, useState } from "react";
 import { getAll } from "../services/carServices";
 import CatalogItem from "./CatalogItem";
+import { Link } from "react-router-dom";
+
+import styles from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
     const [cars, setCars] = useState([]);
@@ -33,7 +35,7 @@ const CatalogPage = () => {
             <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
                 <p>Nothing has been published yet. Be the first!</p>
                 <div>
-                    <a className={styles["action"]} href="/create">Publish Ad</a>
+                    <Link className={styles["action"]} to="/create">Publish Ad</Link>
                 </div>
             </main>
         </section>

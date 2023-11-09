@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./DetailsPage.module.css";
 
 const DetailsPage = () => {
@@ -25,10 +27,10 @@ const DetailsPage = () => {
                                 <li>Alloy wheels<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1iBW2Id6WT25KAD2Ca1JGOjvZ6JYcyRKy" /></li>
                                 <li>Bluetooth<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1ihfnGo0N3B6pVFunWiXoHdbrFRPrnKPK" /></li>
                             </ul>
-                            <a className={styles["action"]} href="/details/:id/decorate">Decorate</a>
-                            <a className={styles["action"]} href="/details/:id/edit">Edit</a>
-                            <a className={styles["action"]} href="/details/:id/delete">Delete</a>
-                            <a className={styles["action"]} href="/details/:id/buy">Buy</a>
+                            <Link className={styles["action"]} to="/details/:id/decorate">Decorate</Link>
+                            <Link className={styles["action"]} to="/details/:id/edit">Edit</Link>
+                            <Link className={styles["action"]} to="/details/:id/delete">Delete</Link>
+                            <Link className={styles["action"]} to="/details/:id/buy">Buy</Link>
                         </div>
                     </div>
                 </main>

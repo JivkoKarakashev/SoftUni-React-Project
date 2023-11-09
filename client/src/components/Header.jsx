@@ -1,27 +1,29 @@
+import { Link } from 'react-router-dom';
+
 import styles from './Header.module.css';
 
 const Header = () => {
     return (
         <header>
-            <a href="/" className={styles["title-logo"]}>
+            <Link to="/" className={styles["title-logo"]}>
                 <img src="/static/images/logo.jpg" />
                 <span>Used Cars Market</span>
-            </a>
+            </Link>
             
             <span>Welcome, username</span>
 
             {/* <!--Navigation--> */}
             <nav className={`${styles["main-nav"]} ${styles["nav-mid"]}`}>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/catalog">Catalog</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/catalog">Catalog</Link></li>
                     {/* <!--Only users--> */}
-                    <li><a href="/create">Publish</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="auth/logout">Logout</a></li>
+                    <li><Link to="/create">Publish</Link></li>
+                    <li><Link to="/profile">Profile</Link></li>
+                    <li><Link to="/auth/logout">Logout</Link></li>
                     {/* <!--Only guest--> */}
-                    <li><a href="/auth/login">Login</a></li>
-                    <li><a href="/auth/register">Register</a></li>
+                    <li><Link to="/auth/login">Login</Link></li>
+                    <li><Link to="/auth/register">Register</Link></li>
                 </ul>
             </nav>
         </header>

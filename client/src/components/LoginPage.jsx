@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
@@ -15,7 +17,7 @@ const LoginPage = () => {
                         <input className={`${styles["cta"]} ${styles["action"]}`} type="submit" value="Sign In" />
                     </form>
                 </main>
-                <footer>Don&apos;t have an account? <a href="/auth/register">Sign up here</a></footer>
+                <footer>Don&apos;t have an account? <Link to="/auth/register">Sign up here</Link></footer>
             </div>
         </section>
     );
