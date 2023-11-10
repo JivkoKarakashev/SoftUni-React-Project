@@ -1,6 +1,9 @@
 const Page404 = () => {
     return (
-        <footer>Jivko Karakashev &copy; 2023</footer>
+        <>
+            <h1>404 Not Found</h1>
+            <p>The page you&apos;re looking for does not exist.</p>
+        </>
     );
 };
 

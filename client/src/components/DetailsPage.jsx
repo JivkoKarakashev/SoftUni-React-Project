@@ -1,41 +1,71 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import EquipmentItem from "./EquipmentItem";
+import { getOne } from "../services/carServices";
+import { getByCarId } from "../services/equipmentServices";
 
 import styles from "./DetailsPage.module.css";
 
 const DetailsPage = () => {
+
+    const { id } = useParams();
+    const [car, setCar] = useState({});
+    const [equipment, setEquipment] = useState([]);
+    const navigateFunc = useNavigate();
+
+    useEffect(() => {
+        getOne(id)
+            .then(result => {
+                // console.log(result);
+                setCar(result);
+            })
+            .catch(() => navigateFunc('/404'));
+
+    }, [id, navigateFunc]);
+
+    useEffect(() => {
+        getByCarId(id)
+            .then(result => {
+                // console.log(equipment);
+                // console.log(result);
+                setEquipment(() => ([
+                    ...result
+                ]));
+            })
+            .catch(() => navigateFunc('/404'));
+    }, [id, navigateFunc])
+
     return (
-        // <--Details Page-->
-        <section id="details-section">
-            <h1 className={styles["item"]}>make model</h1>
-            <div className={`${styles["item"]} ${styles["padded"]}`}>
-                <main className={`${styles["layout"]} ${styles["right"]} ${styles["large"]}`}>
-                    <div className={styles["col"]}>
-                        <img src="https://drive.google.com/uc?export=view&id=1V6o8GWLwiDs5h6SlsWjqTBLpZv61l-6t" className={styles["img-large"]} />
-                    </div>
-                    <div className={`${styles['content']} ${styles['pad-med']}`}>
-                        <p>Mileage: <strong>mileage</strong></p>
-                        <p>description</p>
-                        <div className={styles["align-center"]}>
-                            <div>Price: <strong>price$</strong></div>
-                            <div>Fuel: <strong>fuel</strong></div>
-                            <div>Year: <strong>year</strong></div>
-                            <div>Location: <strong>location</strong></div>
-                            <ul className={styles["catalog"]}>
-                                <li>4WD<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1SgRNEhXSwrsHQP0BlRMSVWPMp9nfmPU5" /></li>
-                                <li>Airbag<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1V6-XGT7OL7ofzBLTwd1UB2oicOLjMBRS" /></li>
-                                <li>Air Conditioning<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1h8s-pLh5HzI4pyWLfnd_igMS5YW-qNxn" /></li>
-                                <li>Alloy wheels<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1iBW2Id6WT25KAD2Ca1JGOjvZ6JYcyRKy" /></li>
-                                <li>Bluetooth<img className={styles["facility-icon"]} src="https://drive.google.com/uc?export=view&id=1ihfnGo0N3B6pVFunWiXoHdbrFRPrnKPK" /></li>
-                            </ul>
-                            <Link className={styles["action"]} to="/details/:id/decorate">Decorate</Link>
-                            <Link className={styles["action"]} to="/details/:id/edit">Edit</Link>
-                            <Link className={styles["action"]} to="/details/:id/delete">Delete</Link>
-                            <Link className={styles["action"]} to="/details/:id/buy">Buy</Link>
+            // <--Details Page-->
+            <section id="details-section">
+                <h1 className={styles["item"]}>{car.make} {car.model}</h1>
+                <div className={`${styles["item"]} ${styles["padded"]}`}>
+                    <main className={`${styles["layout"]} ${styles["right"]} ${styles["large"]}`}>
+                        <div className={styles["col"]}>
+                            <img src={car.image} className={styles["img-large"]} />
                         </div>
-                    </div>
-                </main>
-            </div>
-        </section>
+                        <div className={`${styles['content']} ${styles['pad-med']}`}>
+                            <p>Mileage: <strong>{car.mileage}</strong></p>
+                            <p>description</p>
+                            <div className={styles["align-center"]}>
+                                <div>Price: <strong>{car.price}$</strong></div>
+                                <div>Fuel: <strong>{car.fuel}</strong></div>
+                                <div>Year: <strong>{car.year}</strong></div>
+                                <div>Location: <strong>location</strong></div>
+                                <ul className={styles["catalog"]}>
+                                    {equipment.map((e) =>
+                                        <EquipmentItem key={e['_id']}{...e} />
+                                    )}
+                                </ul>
+                                <Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>
+                                <Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>
+                                <Link className={styles["action"]} to={`/details/${id}/delete`}>Delete</Link>
+                                <Link className={styles["action"]} to={`/details/${id}/buy`}>Buy</Link>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </section>
     );
 };
 

@@ -17,10 +17,10 @@ const CatalogPage = () => {
             });
     }, []);
 
-    const detailsClickHandler = (carId) => {
-        //TO DO...
-        console.log(carId);
-    };
+    // const detailsClickHandler = (carId) => {
+    //     //TO DO...
+    //     console.log(carId);
+    // };
     
     return (
         // <--Catalog Page-->
@@ -29,7 +29,7 @@ const CatalogPage = () => {
             <ul className={`${styles["catalog"]} ${styles["cards"]}`}>
                 {/* {console.log(cars)} */}
                 {cars.map((car) => 
-                    <CatalogItem key={car['_id']}{...car} onDetailsClick={detailsClickHandler}/>
+                    <CatalogItem key={car['_id']}{...car} /*onDetailsClick={detailsClickHandler}*//>
                 )}                
             </ul>
             <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>

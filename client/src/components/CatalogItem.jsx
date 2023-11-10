@@ -11,11 +11,11 @@ const CatalogItem = ({
     year,
     image,
     price,
-    onDetailsClick
+    // onDetailsClick
 }) => {
-    const onDetailsClickHandler = () => {
-        onDetailsClick(_id);
-    };
+    // const onDetailsClickHandler = () => {
+    //     onDetailsClick(_id);
+    // };
 
     return (
         <li className={styles["item"]}>
@@ -31,7 +31,7 @@ const CatalogItem = ({
                 <p>Fuel: <strong>{fuel}</strong></p>
                 <p>Year: <strong>{year}</strong></p>
                 <p>Price: <strong>{price}$</strong></p>
-                <Link className={styles["action"]} to="/details/:id" onClick={onDetailsClickHandler}>See details</Link>
+                <Link className={styles["action"]} to={`/details/${_id}`} /*onClick={onDetailsClickHandler}*/>See details</Link>
             </footer>
         </li>
     );

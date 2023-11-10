@@ -24,17 +24,16 @@ async function request(method, url, data) {
             result = await response.json();
         }
 
-        if (response.ok === false) {
+        if (response.status == 204 || response.ok === false) {
             if (response.status == 403) {
                 localStorage.removeItem('userData');
             }
-            const error = result;
-            throw error;
+            throw new Error('Not found!');
         }
 
         return result;
     } catch (err) {
-        alert(err.message);
+        console.log(err.message);
         throw err;
     }
 }

@@ -6,8 +6,13 @@ const getAll = async () => {
 };
 
 const getOne = async (carId) => {
-    const ad = await get(`/jsonstore/cars/${carId}`);
-    return ad;
+    try {
+        const ad = await get(`/jsonstore/cars/${carId}`);
+        return ad;        
+    } catch (err) {
+        console.log(err.message);
+        throw err;
+    }
 };
 
 const create = async (data) => {
