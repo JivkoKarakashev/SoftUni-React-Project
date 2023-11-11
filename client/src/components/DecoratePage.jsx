@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { getCarById } from "../services/carServices";
+import { getCarById, updateEquipmentByCarId } from "../services/carServices";
 import { getAllEquipment } from "../services/equipmentServices";
 
 import styles from "./DecoratePage.module.css";
@@ -28,17 +28,6 @@ const DecoratePage = () => {
     const [car, setCar] = useState({});
     const [equipment, setEquipment] = useState(checkBoxesInitialState);
     const navigateFunc = useNavigate();
-
-    // const [formValues, setFormValues] = useState(checkBoxesInitialState);
-
-    // useEffect(() => {
-    //     getCarById(id)
-    //         .then(result => {
-    //             // console.log(result);
-    //             setCar(result);
-    //         })
-    //         .catch(() => navigateFunc('/404'));
-    // }, [id, navigateFunc]);
 
     useEffect(() => {
         const requests = [
@@ -81,10 +70,24 @@ const DecoratePage = () => {
             ...state,
             [chechBox]: chechBoxState
         }));
-
     }
-
     // console.log(equipment);
+
+    const confirmEquipment = async (e) => {
+        e.preventDefault();
+        try {
+            const selected = Object.entries(equipment).filter(e => e[1] == true).map(e => e[0]);
+            const available = Object.values(await getAllEquipment()).filter(e => selected.some(eId => eId == e['nameId']));
+            const selectedIds = available.map(e => e['_id']);
+            // console.log(selected);
+            // console.log(available);
+            // console.log(selectedIds);
+            await updateEquipmentByCarId(id, selectedIds);
+            navigateFunc(`/details/${id}`);
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
 
     return (
         // <--Decorate Page-->
@@ -97,7 +100,7 @@ const DecoratePage = () => {
                     </div>
                     <div className={`${styles["content"]} ${styles["pad-med"]}`}>
                         <p>Equipment:</p>
-                        <form action={`details/${id}/decorate`} method="post">
+                        <form action={`details/${id}/decorate`} method="post" onSubmit={confirmEquipment}>
                             <ul className={styles["catalog"]}>
                                 <li><label><input type="checkbox" name="4WD" checked={equipment['4WD']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/XYsy7r2w/4x4.png" /> 4WD </label> </li>
                                 <li><label><input type="checkbox" name="airbag" checked={equipment['airbag']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/28FZMch9/airbag.png" /> Airbag </label> </li>

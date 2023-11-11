@@ -1,4 +1,4 @@
-import { get, post } from "./api";
+import { get, post, put } from "./api";
 
 const getAll = async () => {
     const ads = await get('/jsonstore/cars');
@@ -8,7 +8,7 @@ const getAll = async () => {
 const getCarById = async (carId) => {
     try {
         const ad = await get(`/jsonstore/cars/${carId}`);
-        return ad;        
+        return ad;
     } catch (err) {
         console.log(err.message);
         throw err;
@@ -25,20 +25,14 @@ const create = async (data) => {
     return result;
 };
 
-// const getEquipmentByCarId = async (carId) => {
-//     try {
-//         const equipmentIds = await get(`/jsonstore/cars/${carId}/equipmentId`);
-//         // console.log(equipmentIds);
-//         return equipmentIds;
-//     } catch (err) {
-//         console.log(err.message);
-//         throw err;
-//     }
-// };
+const updateEquipmentByCarId = async (carId, equipment) => {
+    const result = await put(`/jsonstore/cars/${carId}/equipmentId`, [...equipment]);
+    return result;
+};
 
 export {
     getAll,
     getCarById,
     create,
-    // getEquipmentByCarId
+    updateEquipmentByCarId
 };
