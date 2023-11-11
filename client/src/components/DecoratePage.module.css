@@ -65,6 +65,10 @@ main label input[type="checkbox"] {
     color: white;
 }
 
+li {
+   width: fit-content; 
+}
+
 /* .cta {
     display: block;
     margin-left: auto;

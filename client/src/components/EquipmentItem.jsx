@@ -6,7 +6,7 @@ const EquipmentItem = ({
     image
 }) => {
     return (
-        <li>{name}<img className={styles["facility-icon"]} src={image} /></li>
+        <li><img className={styles["facility-icon"]} src={image} /> {name}</li>
     );
 };
 
