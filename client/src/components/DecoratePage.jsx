@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { getOne } from "../services/carServices";
-import { getByCarId } from "../services/equipmentServices";
+import { getCarById } from "../services/carServices";
+import { getAllEquipment } from "../services/equipmentServices";
 
 import styles from "./DecoratePage.module.css";
 
@@ -29,30 +29,46 @@ const DecoratePage = () => {
     const [equipment, setEquipment] = useState(checkBoxesInitialState);
     const navigateFunc = useNavigate();
 
-    useEffect(() => {
-        getOne(id)
-            .then(result => {
-                // console.log(result);
-                setCar(result);
-            })
-            .catch(() => navigateFunc('/404'));
-    }, [id, navigateFunc]);
+    // const [formValues, setFormValues] = useState(checkBoxesInitialState);
+
+    // useEffect(() => {
+    //     getCarById(id)
+    //         .then(result => {
+    //             // console.log(result);
+    //             setCar(result);
+    //         })
+    //         .catch(() => navigateFunc('/404'));
+    // }, [id, navigateFunc]);
 
     useEffect(() => {
-        getByCarId(id)
+        const requests = [
+            getCarById(id),
+            getAllEquipment(),
+        ];
+
+        Promise.all(requests)
             .then(result => {
                 // console.log(equipment);
                 // console.log(result);
+
+                const [car, equipment] = result;
+                const equipmentIds = car['equipmentId'];
+                // console.log(equipment, equipmentIds);
+                const availableEquipment = Object.values(equipment);
+                const selected = availableEquipment.filter(e => equipmentIds.includes(e['_id']));
+                // return console.log(selected);
+
                 const selectedEquipmnet = {};
-                result.forEach(e => selectedEquipmnet[e['nameId']] = true);
+                selected.forEach(e => selectedEquipmnet[e['nameId']] = true);
                 // console.log(selectedEquipmnet);
+                setCar(car);
                 setEquipment(state => ({
                     ...state,
                     ...selectedEquipmnet
                 }));
             })
             .catch(() => navigateFunc('/404'));
-    }, [id, navigateFunc])
+    }, [id, navigateFunc]);
 
     function checkBoxSwitcher(e) {
         // console.log(e.target);
@@ -81,7 +97,7 @@ const DecoratePage = () => {
                     </div>
                     <div className={`${styles["content"]} ${styles["pad-med"]}`}>
                         <p>Equipment:</p>
-                        <form action="details/:id/decorate" method="post">
+                        <form action={`details/${id}/decorate`} method="post">
                             <ul className={styles["catalog"]}>
                                 <li><label><input type="checkbox" name="4WD" checked={equipment['4WD']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/XYsy7r2w/4x4.png" /> 4WD </label> </li>
                                 <li><label><input type="checkbox" name="airbag" checked={equipment['airbag']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/28FZMch9/airbag.png" /> Airbag </label> </li>

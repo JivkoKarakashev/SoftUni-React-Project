@@ -5,7 +5,7 @@ const getAll = async () => {
     return ads;
 };
 
-const getOne = async (carId) => {
+const getCarById = async (carId) => {
     try {
         const ad = await get(`/jsonstore/cars/${carId}`);
         return ad;        
@@ -25,8 +25,20 @@ const create = async (data) => {
     return result;
 };
 
+// const getEquipmentByCarId = async (carId) => {
+//     try {
+//         const equipmentIds = await get(`/jsonstore/cars/${carId}/equipmentId`);
+//         // console.log(equipmentIds);
+//         return equipmentIds;
+//     } catch (err) {
+//         console.log(err.message);
+//         throw err;
+//     }
+// };
+
 export {
     getAll,
-    getOne,
+    getCarById,
     create,
+    // getEquipmentByCarId
 };

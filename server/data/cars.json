@@ -9,7 +9,12 @@
         "location": "Bulgaria",
         "image": "https://i.postimg.cc/gjLxg4ds/audi-q4-e-tron.webp",
         "price": 47190,
-        "description": "The Audi Q4 e-tron is a battery electric compact luxury crossover SUV produced by Audi. It is based on Volkswagen Group's electric MEB platform and is the fourth fully-electric model in the Audi e-tron series after the Audi Q8 e-tron (formerly Audi e-tron), e-tron GT and Q2L e-tron."
+        "description": "The Audi Q4 e-tron is a battery electric compact luxury crossover SUV produced by Audi. It is based on Volkswagen Group's electric MEB platform and is the fourth fully-electric model in the Audi e-tron series after the Audi Q8 e-tron (formerly Audi e-tron), e-tron GT and Q2L e-tron.",
+        "equipmentId": [
+            "-MSgyQMjBNfYjW2m6r97",
+            "-MSgySbWEFw3rhCfIIns",
+            "-MSgyUeUxLUNUorksrlq"
+        ]
     },
     "-MSbz99qxklK-5rZWGmt": {
         "_id": "-MSbz99qxklK-5rZWGmt",
@@ -21,7 +26,12 @@
         "location": "Germany",
         "image": "https://i.postimg.cc/qBWw45tk/bmw-x1.webp",
         "price": 41330,
-        "description": "The F48 BMW X1 is the second generation of the BMW X1 range of subcompact luxury crossover SUV. The F48 X1 was unveiled at the September 2015 Frankfurt Motor Show, and later at the 2015 Tokyo Motor Show. Contrary to the previous generation which uses rear-wheel drive as standard, all models are now front-wheel drive based (marketed as sDrive) while also available with an optional all-wheel drive (xDrive)."
+        "description": "The F48 BMW X1 is the second generation of the BMW X1 range of subcompact luxury crossover SUV. The F48 X1 was unveiled at the September 2015 Frankfurt Motor Show, and later at the 2015 Tokyo Motor Show. Contrary to the previous generation which uses rear-wheel drive as standard, all models are now front-wheel drive based (marketed as sDrive) while also available with an optional all-wheel drive (xDrive).",
+        "equipmentId": [
+            "-MSgyWOlRpJq2G2hBqYZ",
+            "-MSgyY8fK5DetuiWvbbX",
+            "-MSgyZoHC-v0eEdoy31Y"
+        ]
     },
     "-MSbzSdzWBvBHJN7gdRw": {
         "_id": "-MSbzSdzWBvBHJN7gdRw",
@@ -33,7 +43,12 @@
         "location": "Italy",
         "image": "https://i.postimg.cc/65R03fRC/ford-edge.webp",
         "price": 23000,
-        "description": "The Ford Edge is a range of crossover SUVs manufactured by the Ford Motor Company. Introduced for the 2007 model year, the Edge is the first mid-size CUV marketed by Ford in North America;. Listed model is the second-generation of the Ford Edge range."
+        "description": "The Ford Edge is a range of crossover SUVs manufactured by the Ford Motor Company. Introduced for the 2007 model year, the Edge is the first mid-size CUV marketed by Ford in North America;. Listed model is the second-generation of the Ford Edge range.",
+        "equipmentId": [
+            "-MSgyacRSWOAMXra4lZ_",
+            "-MSgyhugLG4gmph9qIGB",
+            "-MSgycIUgNg2qojbj7e1"
+        ]
     },
     "-MSbziiMKjPeV03elBfK": {
         "_id": "-MSbziiMKjPeV03elBfK",
@@ -45,7 +60,12 @@
         "location": "Austria",
         "image": "https://i.postimg.cc/kgmytRFz/mercedes-benz-e200.webp",
         "price": 17500,
-        "description": "The W212 and S212 Mercedes-Benz E-Class series is the fourth-generation of the E-Class range of executive cars which was produced by Mercedes-Benz between 2009 and 2016 as the successor to the W211 E-Class."
+        "description": "The W212 and S212 Mercedes-Benz E-Class series is the fourth-generation of the E-Class range of executive cars which was produced by Mercedes-Benz between 2009 and 2016 as the successor to the W211 E-Class.",
+        "equipmentId": [
+            "-MSgydt2l0elQZ2vWXtL",
+            "-MSgyl1Umh0tKd3ISkJt",
+            "-MSgymXYyAU71cDX6-eK"
+        ]
     },
     "-MSbzvqGMJAXR1syO-nz": {
         "_id": "-MSbzvqGMJAXR1syO-nz",
@@ -57,7 +77,12 @@
         "location": "Germany",
         "image": "https://i.postimg.cc/jCVLmNSb/opel-grandland.webp",
         "price": 18190,
-        "description": "The Opel Grandland (Vauxhall Grandland in the United Kingdom) is a compact crossover SUV which is produced by the German manufacturer Opel and its British twin-sister brand Vauxhall. It was originally known as the Opel and Vauxhall Grandland X. It was introduced at the 2017 Frankfurt Motor Show as the replacement for the Opel Antara."
+        "description": "The Opel Grandland (Vauxhall Grandland in the United Kingdom) is a compact crossover SUV which is produced by the German manufacturer Opel and its British twin-sister brand Vauxhall. It was originally known as the Opel and Vauxhall Grandland X. It was introduced at the 2017 Frankfurt Motor Show as the replacement for the Opel Antara.",
+        "equipmentId": [
+            "-MSgyg1jo4ZATbbeLtCF",
+            "-MSgyo88wO16izQZCVjh",
+            "-MSgyQMjBNfYjW2m6r97"
+        ]
     },
     "-MSc-8DwUmBi8NG52eOH": {
         "_id": "-MSc-8DwUmBi8NG52eOH",
@@ -69,6 +94,11 @@
         "location": "Switzerland",
         "image": "https://i.postimg.cc/pVmkNHLG/vw-arteon.webp",
         "price": 32900,
-        "description": "The Volkswagen Arteon is a car manufactured by German car manufacturer Volkswagen. Described as a large family car or a mid-size car, it is available in five-door liftback or estate body styles. The Arteon was unveiled on 6 March 2017, at the Geneva Motor Show, and at the Chicago Auto Show for the North American market. It is direct successor to the CC."
+        "description": "The Volkswagen Arteon is a car manufactured by German car manufacturer Volkswagen. Described as a large family car or a mid-size car, it is available in five-door liftback or estate body styles. The Arteon was unveiled on 6 March 2017, at the Geneva Motor Show, and at the Chicago Auto Show for the North American market. It is direct successor to the CC.",
+        "equipmentId": [
+            "-MSgySbWEFw3rhCfIIns",
+            "-MSgyUeUxLUNUorksrlq",
+            "-MSgyWOlRpJq2G2hBqYZ"
+        ]
     }
 }
