@@ -1339,310 +1339,216 @@
     	}
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
-    	comments: {
-    		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			content: "Great recipe!",
-    			recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-    			_createdOn: 1614260681375,
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
-    		}
-    	},
-    	records: {
-    		i01: {
-    			name: "John1",
-    			val: 1,
-    			_createdOn: 1613551388703
-    		},
-    		i02: {
-    			name: "John2",
-    			val: 1,
-    			_createdOn: 1613551388713
-    		},
-    		i03: {
-    			name: "John3",
-    			val: 2,
-    			_createdOn: 1613551388723
-    		},
-    		i04: {
-    			name: "John4",
-    			val: 2,
-    			_createdOn: 1613551388733
-    		},
-    		i05: {
-    			name: "John5",
-    			val: 2,
-    			_createdOn: 1613551388743
-    		},
-    		i06: {
-    			name: "John6",
-    			val: 3,
-    			_createdOn: 1613551388753
-    		},
-    		i07: {
-    			name: "John7",
-    			val: 3,
-    			_createdOn: 1613551388763
-    		},
-    		i08: {
-    			name: "John8",
-    			val: 2,
-    			_createdOn: 1613551388773
-    		},
-    		i09: {
-    			name: "John9",
-    			val: 3,
-    			_createdOn: 1613551388783
-    		},
-    		i10: {
-    			name: "John10",
-    			val: 1,
-    			_createdOn: 1613551388793
-    		}
-    	},
-    	catches: {
-    		"07f260f4-466c-4607-9a33-f7273b24f1b4": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			angler: "Paulo Admorim",
-    			weight: 636,
-    			species: "Atlantic Blue Marlin",
-    			location: "Vitoria, Brazil",
-    			bait: "trolled pink",
-    			captureTime: 80,
-    			_createdOn: 1614760714812,
-    			_id: "07f260f4-466c-4607-9a33-f7273b24f1b4"
-    		},
-    		"bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			angler: "John Does",
-    			weight: 554,
-    			species: "Atlantic Blue Marlin",
-    			location: "Buenos Aires, Argentina",
-    			bait: "trolled pink",
-    			captureTime: 120,
-    			_createdOn: 1614760782277,
-    			_id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d"
-    		}
-    	},
-    	furniture: {
-    	},
-    	orders: {
-    	},
-    	movies: {
-    		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Black Widow",
-    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
-    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
-    			_createdOn: 1614935055353,
-    			_id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
-    		},
-    		"143e5265-333e-4150-80e4-16b61de31aa0": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Wonder Woman 1984",
-    			description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
-    			img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
-    			_createdOn: 1614935181470,
-    			_id: "143e5265-333e-4150-80e4-16b61de31aa0"
-    		},
-    		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Top Gun 2",
-    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
-    			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
-    			_createdOn: 1614935268135,
-    			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
-    		}
-    	},
-    	likes: {
-    	},
-    	ideas: {
-    		"833e0e57-71dc-42c0-b387-0ce0caf5225e": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Best Pilates Workout To Do At Home",
-    			description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima possimus eveniet ullam aspernatur corporis tempore quia nesciunt nostrum mollitia consequatur. At ducimus amet aliquid magnam nulla sed totam blanditiis ullam atque facilis corrupti quidem nisi iusto saepe, consectetur culpa possimus quos? Repellendus, dicta pariatur! Delectus, placeat debitis error dignissimos nesciunt magni possimus quo nulla, fuga corporis maxime minus nihil doloremque aliquam quia recusandae harum. Molestias dolorum recusandae commodi velit cum sapiente placeat alias rerum illum repudiandae? Suscipit tempore dolore autem, neque debitis quisquam molestias officia hic nesciunt? Obcaecati optio fugit blanditiis, explicabo odio at dicta asperiores distinctio expedita dolor est aperiam earum! Molestias sequi aliquid molestiae, voluptatum doloremque saepe dignissimos quidem quas harum quo. Eum nemo voluptatem hic corrupti officiis eaque et temporibus error totam numquam sequi nostrum assumenda eius voluptatibus quia sed vel, rerum, excepturi maxime? Pariatur, provident hic? Soluta corrupti aspernatur exercitationem vitae accusantium ut ullam dolor quod!",
-    			img: "./images/best-pilates-youtube-workouts-2__medium_4x3.jpg",
-    			_createdOn: 1615033373504,
-    			_id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
-    		},
-    		"247efaa7-8a3e-48a7-813f-b5bfdad0f46c": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "4 Eady DIY Idea To Try!",
-    			description: "Similique rem culpa nemo hic recusandae perspiciatis quidem, quia expedita, sapiente est itaque optio enim placeat voluptates sit, fugit dignissimos tenetur temporibus exercitationem in quis magni sunt vel. Corporis officiis ut sapiente exercitationem consectetur debitis suscipit laborum quo enim iusto, labore, quod quam libero aliquid accusantium! Voluptatum quos porro fugit soluta tempore praesentium ratione dolorum impedit sunt dolores quod labore laudantium beatae architecto perspiciatis natus cupiditate, iure quia aliquid, iusto modi esse!",
-    			img: "./images/brightideacropped.jpg",
-    			_createdOn: 1615033452480,
-    			_id: "247efaa7-8a3e-48a7-813f-b5bfdad0f46c"
-    		},
-    		"b8608c22-dd57-4b24-948e-b358f536b958": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Dinner Recipe",
-    			description: "Consectetur labore et corporis nihil, officiis tempora, hic ex commodi sit aspernatur ad minima? Voluptas nesciunt, blanditiis ex nulla incidunt facere tempora laborum ut aliquid beatae obcaecati quidem reprehenderit consequatur quis iure natus quia totam vel. Amet explicabo quidem repellat unde tempore et totam minima mollitia, adipisci vel autem, enim voluptatem quasi exercitationem dolor cum repudiandae dolores nostrum sit ullam atque dicta, tempora iusto eaque! Rerum debitis voluptate impedit corrupti quibusdam consequatur minima, earum asperiores soluta. A provident reiciendis voluptates et numquam totam eveniet! Dolorum corporis libero dicta laborum illum accusamus ullam?",
-    			img: "./images/dinner.jpg",
-    			_createdOn: 1615033491967,
-    			_id: "b8608c22-dd57-4b24-948e-b358f536b958"
-    		}
-    	},
-    	catalog: {
-    		"53d4dbf5-7f41-47ba-b485-43eccb91cb95": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			make: "Table",
-    			model: "Swedish",
-    			year: 2015,
-    			description: "Medium table",
-    			price: 235,
-    			img: "./images/table.png",
-    			material: "Hardwood",
-    			_createdOn: 1615545143015,
-    			_id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
-    		},
-    		"f5929b5c-bca4-4026-8e6e-c09e73908f77": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Sofa",
-    			model: "ES-549-M",
-    			year: 2018,
-    			description: "Three-person sofa, blue",
-    			price: 1200,
-    			img: "./images/sofa.jpg",
-    			material: "Frame - steel, plastic; Upholstery - fabric",
-    			_createdOn: 1615545572296,
-    			_id: "f5929b5c-bca4-4026-8e6e-c09e73908f77"
-    		},
-    		"c7f51805-242b-45ed-ae3e-80b68605141b": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Chair",
-    			model: "Bright Dining Collection",
-    			year: 2017,
-    			description: "Dining chair",
-    			price: 180,
-    			img: "./images/chair.jpg",
-    			material: "Wood laminate; leather",
-    			_createdOn: 1615546332126,
-    			_id: "c7f51805-242b-45ed-ae3e-80b68605141b"
-    		}
-    	},
-    	teams: {
-    		"34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Storm Troopers",
-    			logoUrl: "/assets/atat.png",
-    			description: "These ARE the droids we're looking for",
-    			_createdOn: 1615737591748,
-    			_id: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1"
-    		},
-    		"dc888b1a-400f-47f3-9619-07607966feb8": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Team Rocket",
-    			logoUrl: "/assets/rocket.png",
-    			description: "Gotta catch 'em all!",
-    			_createdOn: 1615737655083,
-    			_id: "dc888b1a-400f-47f3-9619-07607966feb8"
-    		},
-    		"733fa9a1-26b6-490d-b299-21f120b2f53a": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Minions",
-    			logoUrl: "/assets/hydrant.png",
-    			description: "Friendly neighbourhood jelly beans, helping evil-doers succeed.",
-    			_createdOn: 1615737688036,
-    			_id: "733fa9a1-26b6-490d-b299-21f120b2f53a"
-    		}
-    	},
-    	members: {
-    		"cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616236790262,
-    			_updatedOn: 1616236792930
-    		},
-    		"61a19986-3b86-4347-8ca4-8c074ed87591": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237188183,
-    			_updatedOn: 1616237189016
-    		},
-    		"8a03aa56-7a82-4a6b-9821-91349fbc552f": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "733fa9a1-26b6-490d-b299-21f120b2f53a",
-    			status: "member",
-    			_createdOn: 1616237193355,
-    			_updatedOn: 1616237195145
-    		},
-    		"9be3ac7d-2c6e-4d74-b187-04105ab7e3d6": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237231299,
-    			_updatedOn: 1616237235713
-    		},
-    		"280b4a1a-d0f3-4639-aa54-6d9158365152": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237257265,
-    			_updatedOn: 1616237278248
-    		},
-    		"e797fa57-bf0a-4749-8028-72dba715e5f8": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616237272948,
-    			_updatedOn: 1616237293676
-    		}
-    	}
+        cars: {
+            "-MSbypx-13fHPDyzNRtf": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _id: "-MSbypx-13fHPDyzNRtf",
+                make: "Audi",
+                model: "Q4 E-tron",
+                mileage: 36900,
+                fuel: "Electric",
+                year: 2021,
+                location: "Bulgaria",
+                image: "https://i.postimg.cc/gjLxg4ds/audi-q4-e-tron.webp",
+                price: 47190,
+                description: "The Audi Q4 e-tron is a battery electric compact luxury crossover SUV produced by Audi. It is based on Volkswagen Group's electric MEB platform and is the fourth fully-electric model in the Audi e-tron series after the Audi Q8 e-tron (formerly Audi e-tron), e-tron GT and Q2L e-tron.",
+                equipmentId: [
+                    "-MSgyQMjBNfYjW2m6r97",
+                    "-MSgySbWEFw3rhCfIIns",
+                    "-MSgyUeUxLUNUorksrlq"
+                ]
+            },
+            "-MSbz99qxklK-5rZWGmt": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _id: "-MSbz99qxklK-5rZWGmt",
+                make: "BMW",
+                model: "X1",
+                mileage: 10882,
+                fuel: "Gasoline",
+                year: 2022,
+                location: "Germany",
+                image: "https://i.postimg.cc/qBWw45tk/bmw-x1.webp",
+                price: 41330,
+                description: "The F48 BMW X1 is the second generation of the BMW X1 range of subcompact luxury crossover SUV. The F48 X1 was unveiled at the September 2015 Frankfurt Motor Show, and later at the 2015 Tokyo Motor Show. Contrary to the previous generation which uses rear-wheel drive as standard, all models are now front-wheel drive based (marketed as sDrive) while also available with an optional all-wheel drive (xDrive).",
+                equipmentId: [
+                    "-MSgyWOlRpJq2G2hBqYZ",
+                    "-MSgyY8fK5DetuiWvbbX",
+                    "-MSgyZoHC-v0eEdoy31Y"
+                ]
+            },
+            "-MSbzSdzWBvBHJN7gdRw": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _id: "-MSbzSdzWBvBHJN7gdRw",
+                make: "Ford",
+                model: "Edge",
+                mileage: 102500,
+                fuel: "Diesel",
+                year: 2017,
+                location: "Italy",
+                image: "https://i.postimg.cc/65R03fRC/ford-edge.webp",
+                price: 23000,
+                description: "The Ford Edge is a range of crossover SUVs manufactured by the Ford Motor Company. Introduced for the 2007 model year, the Edge is the first mid-size CUV marketed by Ford in North America;. Listed model is the second-generation of the Ford Edge range.",
+                equipmentId: [
+                    "-MSgyacRSWOAMXra4lZ_",
+                    "-MSgyhugLG4gmph9qIGB",
+                    "-MSgycIUgNg2qojbj7e1"
+                ]
+            },
+            "-MSbziiMKjPeV03elBfK": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _id: "-MSbziiMKjPeV03elBfK",
+                make: "Mercedes-Benz",
+                model: "E200",
+                mileage: 172600,
+                fuel: "Diesel",
+                year: 2015,
+                location: "Austria",
+                image: "https://i.postimg.cc/kgmytRFz/mercedes-benz-e200.webp",
+                price: 17500,
+                description: "The W212 and S212 Mercedes-Benz E-Class series is the fourth-generation of the E-Class range of executive cars which was produced by Mercedes-Benz between 2009 and 2016 as the successor to the W211 E-Class.",
+                equipmentId: [
+                    "-MSgydt2l0elQZ2vWXtL",
+                    "-MSgyl1Umh0tKd3ISkJt",
+                    "-MSgymXYyAU71cDX6-eK"
+                ]
+            },
+            "-MSbzvqGMJAXR1syO-nz": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _id: "-MSbzvqGMJAXR1syO-nz",
+                make: "Opel",
+                model: "Grandland",
+                mileage: 21860,
+                fuel: "Gasoline",
+                year: 2022,
+                location: "Germany",
+                image: "https://i.postimg.cc/jCVLmNSb/opel-grandland.webp",
+                price: 18190,
+                description: "The Opel Grandland (Vauxhall Grandland in the United Kingdom) is a compact crossover SUV which is produced by the German manufacturer Opel and its British twin-sister brand Vauxhall. It was originally known as the Opel and Vauxhall Grandland X. It was introduced at the 2017 Frankfurt Motor Show as the replacement for the Opel Antara.",
+                equipmentId: [
+                    "-MSgyg1jo4ZATbbeLtCF",
+                    "-MSgyo88wO16izQZCVjh",
+                    "-MSgyQMjBNfYjW2m6r97"
+                ]
+            },
+            "-MSc-8DwUmBi8NG52eOH": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _id: "-MSc-8DwUmBi8NG52eOH",
+                make: "VW",
+                model: "Arteon",
+                mileage: 42630,
+                fuel: "Gasoline",
+                year: 2019,
+                location: "Switzerland",
+                image: "https://i.postimg.cc/pVmkNHLG/vw-arteon.webp",
+                price: 32900,
+                description: "The Volkswagen Arteon is a car manufactured by German car manufacturer Volkswagen. Described as a large family car or a mid-size car, it is available in five-door liftback or estate body styles. The Arteon was unveiled on 6 March 2017, at the Geneva Motor Show, and at the Chicago Auto Show for the North American market. It is direct successor to the CC.",
+                equipmentId: [
+                    "-MSgySbWEFw3rhCfIIns",
+                    "-MSgyUeUxLUNUorksrlq",
+                    "-MSgyWOlRpJq2G2hBqYZ"
+                ]
+            }
+        },
+    	equipment: {
+            "-MSgyQMjBNfYjW2m6r97": {
+                _id: "-MSgyQMjBNfYjW2m6r97",
+                name: "4WD",
+                nameId: "4WD",
+                description: "Four-wheel drive, also called 4x4 (four by four) or 4WD, refers to a two-axled vehicle drivetrain capable of providing torque to all of its wheels simultaneously.",
+                image: "https://i.postimg.cc/XYsy7r2w/4x4.png"
+            },
+            "-MSgySbWEFw3rhCfIIns": {
+                _id: "-MSgySbWEFw3rhCfIIns",
+                name: "Airbag",
+                nameId: "airbag",
+                description: "An Airbag is a vehicle occupant-restraint system using a bag designed to inflate extremely quickly, then quickly deflate during a collision.",
+                image: "https://i.postimg.cc/28FZMch9/airbag.png"
+            },
+            "-MSgyUeUxLUNUorksrlq": {
+                _id: "-MSgyUeUxLUNUorksrlq",
+                name: "Air conditioning",
+                nameId: "air-conditioning",
+                description: "Air conditioning, [abbreviated A/C (US) or air con (UK)] is a technique that provide heating, ventilation, and air conditioning (HVAC).",
+                image: "https://i.postimg.cc/8zp6SRbp/aircon.png"
+            },
+            "-MSgyWOlRpJq2G2hBqYZ": {
+                _id: "-MSgyWOlRpJq2G2hBqYZ",
+                name: "Alloy wheels",
+                nameId: "alloy-wheels",
+                description: "Alloy wheels, often are purchased for cosmetic purposes.",
+                image: "https://i.postimg.cc/5tjQHfGD/alloy-wheel.png"
+            },
+            "-MSgyY8fK5DetuiWvbbX": {
+                _id: "-MSgyY8fK5DetuiWvbbX",
+                name: "Bluetooth",
+                nameId: "bluetooth",
+                description: "Bluetooth car stereo typically allows you to connect your phone, a wireless earpiece or headphones, and other portable electronics.",
+                image: "https://i.postimg.cc/hGwzTHRv/bluetooth.png"
+            },
+            "-MSgyZoHC-v0eEdoy31Y": {
+                _id: "-MSgyZoHC-v0eEdoy31Y",
+                name: "CD",
+                nameId: "cd",
+                description: "Compact disc changer is device that allows you to listen CDs on car audio system.",
+                image: "https://i.postimg.cc/Wzcdfg3P/cd.png"
+            },
+            "-MSgyacRSWOAMXra4lZ_": {
+                _id: "-MSgyacRSWOAMXra4lZ_",
+                name: "Cruise control",
+                nameId: "cruise-control",
+                description: "Cruise control (also known as speed control, autocruise, or tempomat) is a system that automatically controls the speed of an automobile.",
+                image: "https://i.postimg.cc/qR3tLjpL/cruise-control.png"
+            },
+            "-MSgycIUgNg2qojbj7e1": {
+                _id: "-MSgycIUgNg2qojbj7e1",
+                name: "LED",
+                nameId: "led",
+                description: "The advantages of LED lights are many: brighter light, better quality of light, less prone to breakage and less energy consumption.",
+                image: "https://i.postimg.cc/tCy133w3/led-light.png"
+            },
+            "-MSgydt2l0elQZ2vWXtL": {
+                _id: "-MSgydt2l0elQZ2vWXtL",
+                name: "Navigation",
+                nameId: "navigation",
+                description: "An electronic system in a vehicle that provides a real-time map of the current location and step-by-step directions to a requested destination.",
+                image: "https://i.postimg.cc/yYPDvJCw/navigation.png"
+            },
+            "-MSgyg1jo4ZATbbeLtCF": {
+                _id: "-MSgyg1jo4ZATbbeLtCF",
+                name: "Seat heating",
+                nameId: "seat-heating",
+                description: "Seat heating is a systems that uses heating elements to warm the seats.",
+                image: "https://i.postimg.cc/MGhHvV1j/seat-heat.png"
+            },
+            "-MSgyhugLG4gmph9qIGB": {
+                _id: "-MSgyhugLG4gmph9qIGB",
+                name: "Keyless",
+                nameId: "keyless",
+                description: "Keyless system allows you to unlock your car automatically and start and stop it at the push of a button, offering drivers increased convenience, safety, and security.",
+                image: "https://i.postimg.cc/7h15vhGJ/keyless.png"
+            },
+            "-MSgyl1Umh0tKd3ISkJt": {
+                _id: "-MSgyl1Umh0tKd3ISkJt",
+                name: "Parking Assist",
+                nameId: "parking-assist",
+                description: "Park Assist is an automated parking aid that helps drivers park with greater precision, using guidance system technology.",
+                image: "https://i.postimg.cc/RZZN8MMq/parking-assist.png"
+            },
+            "-MSgymXYyAU71cDX6-eK": {
+                _id: "-MSgymXYyAU71cDX6-eK",
+                name: "Rain Sensor",
+                nameId: "rain-sensor",
+                description: "Rain sensor is a driver-assistance system that detects water on a car's windscreen and activates wipers in the rain.",
+                image: "https://i.postimg.cc/x1pcVWC5/rain-sensor.png"
+            },
+            "-MSgyo88wO16izQZCVjh": {
+                _id: "-MSgyo88wO16izQZCVjh",
+                name: "USB",
+                nameId: "usb",
+                description: "A car USB socket is used to power or enable portable devices to work in a car.",
+                image: "https://i.postimg.cc/jjWCxZnb/usb-drive.png"
+            }
+        }
     };
     var rules$1 = {
     	users: {
