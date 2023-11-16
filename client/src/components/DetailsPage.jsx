@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import EquipmentItem from "./EquipmentItem";
-import { getCarById } from "../services/carServices";
-import { getAllEquipment } from "../services/equipmentServices";
 
 import styles from "./DetailsPage.module.css";
 
@@ -14,16 +12,29 @@ const DetailsPage = () => {
     const navigateFunc = useNavigate();
 
     useEffect(() => {
+        const abortController = new AbortController();
+
+        const options = {
+            method: 'GET',
+            headers: {},
+            body: {}
+        };
+
         const requests = [
-            getCarById(id),
-            getAllEquipment(),
+            fetch(`http://localhost:3030/jsonstore/cars/${id}`, { signal: abortController.signal }, options),
+            fetch('http://localhost:3030/jsonstore/equipment', { signal: abortController.signal }, options),
         ];
 
         Promise.all(requests)
+            .then(async ([car, equipment]) => {
+                const c = await car.json();
+                const e = await equipment.json();
+                return [c, e];
+            })
             .then(result => {
                 // console.log(result);
                 const [car, equipment] = result;
-                const equipmentIds = car['equipmentId'];
+                const equipmentIds = car['equipmentId'] || [];
                 // console.log(equipment, equipmentIds);
                 const availableEquipment = Object.values(equipment);
                 const selected = availableEquipment.filter(e => equipmentIds.includes(e['_id']));
@@ -33,7 +44,10 @@ const DetailsPage = () => {
                     ...selected
                 ]));
             })
+            // .catch((error) => console.log(error));
             .catch(() => navigateFunc('/404'));
+
+        return () => abortController.abort();
     }, [id, navigateFunc]);
 
     return (

@@ -1,7 +1,8 @@
 import styles from "./CreatePage.module.css";
-import { create } from "../services/carServices";
+// import { create } from "../services/carServices";
 import { useState } from "react";
 import Errors from "./Errors";
+import { useNavigate } from "react-router-dom";
 
 const formInitialState = {
     make: '',
@@ -13,9 +14,12 @@ const formInitialState = {
     image: '',
     price: '',
     description: '',
+    equipmentId: []
 };
 
 const CreatePage = () => {
+
+    const navigateFunc = useNavigate();
 
     const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState(formInitialState);
@@ -36,11 +40,23 @@ const CreatePage = () => {
 
     const publishHandler = async (e) => {
         e.preventDefault();
-        // console.log(formValues);
+
+        const options = {
+            method: 'POST',
+            headers: {},
+            body: {}
+        };
+
+        // return console.log(formValues);
         try {
             entireFormValidator();
-            await create(formValues);
-            resetFormHandler();            
+            options.body = JSON.stringify(formValues);
+            // console.log(options.body);
+            const response = await fetch('http://localhost:3030/jsonstore/cars', options);
+            const newCar = await response.json();
+            // console.log(newCar);
+            resetFormHandler();
+            navigateFunc(`/details/${newCar['_id']}`);
         } catch (err) {
             console.log(err.message);
         }
@@ -69,7 +85,7 @@ const CreatePage = () => {
         const errors = {};
         for (const [key, value] of Object.entries(formValues)) {
             // console.log(key, value);
-            if (value == '') {
+            if (value === '') {
                 errors[key] = `${key} is required!`;
             } else {
                 errors[key] = '';
@@ -85,7 +101,9 @@ const CreatePage = () => {
             ...state,
             ...errors
         }));
-        throw Error('All fields are required!')
+        if (Object.values(errors).some(v => v)) {
+            throw Error('All fields are required!');            
+        }
     }
 
     return (

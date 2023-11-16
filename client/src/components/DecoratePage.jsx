@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { getCarById, updateEquipmentByCarId } from "../services/carServices";
-import { getAllEquipment } from "../services/equipmentServices";
 
 import styles from "./DecoratePage.module.css";
 
@@ -30,18 +28,31 @@ const DecoratePage = () => {
     const navigateFunc = useNavigate();
 
     useEffect(() => {
+        const abortController = new AbortController();
+
+        const options = {
+            method: 'GET',
+            headers: {},
+            body: {}
+        };
+
         const requests = [
-            getCarById(id),
-            getAllEquipment(),
+            fetch(`http://localhost:3030/jsonstore/cars/${id}`, { signal: abortController.signal }, options),
+            fetch('http://localhost:3030/jsonstore/equipment', { signal: abortController.signal }, options),
         ];
 
         Promise.all(requests)
+            .then(async ([car, equipment]) => {
+                const c = await car.json();
+                const e = await equipment.json();
+                return [c, e];
+            })
             .then(result => {
                 // console.log(equipment);
                 // console.log(result);
 
                 const [car, equipment] = result;
-                const equipmentIds = car['equipmentId'];
+                const equipmentIds = car['equipmentId'] || [];
                 // console.log(equipment, equipmentIds);
                 const availableEquipment = Object.values(equipment);
                 const selected = availableEquipment.filter(e => equipmentIds.includes(e['_id']));
@@ -57,6 +68,8 @@ const DecoratePage = () => {
                 }));
             })
             .catch(() => navigateFunc('/404'));
+
+            return () => abortController.abort();
     }, [id, navigateFunc]);
 
     function checkBoxSwitcher(e) {
@@ -75,14 +88,24 @@ const DecoratePage = () => {
 
     const confirmEquipment = async (e) => {
         e.preventDefault();
+
+        const options = {
+            method: 'PUT',
+            headers: {},
+            body: null
+        };
+
         try {
             const selected = Object.entries(equipment).filter(e => e[1] == true).map(e => e[0]);
-            const available = Object.values(await getAllEquipment()).filter(e => selected.some(eId => eId == e['nameId']));
+            const response = await fetch('http://localhost:3030/jsonstore/equipment');
+            const available = Object.values(await response.json()).filter(e => selected.some(eId => eId == e['nameId']));
             const selectedIds = available.map(e => e['_id']);
             // console.log(selected);
             // console.log(available);
             // console.log(selectedIds);
-            await updateEquipmentByCarId(id, selectedIds);
+            options.body = JSON.stringify([...selectedIds]);
+            // console.log(options.body);
+            await fetch(`http://localhost:3030/jsonstore/cars/${id}/equipmentId`, options);
             navigateFunc(`/details/${id}`);
         } catch (err) {
             console.log(err.message);
