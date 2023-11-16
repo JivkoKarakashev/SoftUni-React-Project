@@ -23,7 +23,7 @@ const CreatePage = () => {
 
     const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState(formInitialState);
-    const [showErrorBox, setShowErrorBox] = useState(formInitialState);
+    const [showErrorBox, setShowErrorBox] = useState(Object.fromEntries(Object.entries(formInitialState).slice(0, 9)));
 
     const changeHandler = (e) => {
         setFormValues(state => ({
@@ -105,6 +105,7 @@ const CreatePage = () => {
             throw Error('All fields are required!');            
         }
     }
+    console.log(showErrorBox);
 
     return (
         // <--Create Page-->
