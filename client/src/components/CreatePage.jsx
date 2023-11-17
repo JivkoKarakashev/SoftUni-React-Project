@@ -104,8 +104,7 @@ const CreatePage = () => {
         if (Object.values(errors).some(v => v)) {
             throw Error('All fields are required!');            
         }
-    }
-    console.log(showErrorBox);
+    } 
 
     return (
         // <--Create Page-->

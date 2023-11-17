@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 
 import { AuthContext } from "../contexts/authContext";
@@ -12,13 +12,11 @@ const formInitialState = {
 };
 
 const LoginPage = () => {
-    const navigateFunc = useNavigate();
     const { onLogin } = useContext(AuthContext);
 
     const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState(formInitialState);
     const [showErrorBox, setShowErrorBox] = useState(formInitialState);
-    const [userData, setUserData] = useState({});
 
     const changeHandler = (e) => {
         setFormValues(state => ({
@@ -29,31 +27,13 @@ const LoginPage = () => {
     };
 
     const loginHandler = async (e) => {
+        setshowErrorFields(formInitialState);
+        setShowErrorBox(formInitialState);
         e.preventDefault();
 
-        const options = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: {}
-        };
-
-        // return console.log(formValues);
         try {
             entireFormValidator();
-            options.body = JSON.stringify(formValues);
-            // console.log(options.body);
-            // console.log(showErrorBox);
-            const response = await fetch('http://localhost:3030/users/login', options);            
-            if (response.status == 403) {
-                throw response;
-            }
-            const user = await response.json();
-            setUserData(state => ({
-                ...state,
-                ...user
-            }));
-            console.log(user);
-            navigateFunc('/');
+            await onLogin(formValues);
         } catch (err) {
             if (err.status == 403) {
                 const error = await err.json();
@@ -65,8 +45,6 @@ const LoginPage = () => {
             }
             return;
         }
-        setshowErrorFields(formInitialState);
-        setShowErrorBox(formInitialState);
     };
 
     function formFieldsValidator(e) {
@@ -109,7 +87,7 @@ const LoginPage = () => {
             ...errors
         }));
         if (Object.values(errors).some(v => v)) {
-            throw Error('All fields are required!');            
+            throw Error('All fields are required!');
         }
     }
 
