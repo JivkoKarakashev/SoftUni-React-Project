@@ -10,7 +10,7 @@ const CatalogPage = () => {
     useEffect(() => {
         const abortController = new AbortController();
 
-        fetch('http://localhost:3030/jsonstore/cars', { signal: abortController.signal })
+        fetch('http://localhost:3030/data/cars', { signal: abortController.signal })
             .then(res => res.json())
             .then(result => {
                 // result = [];

@@ -1,8 +1,11 @@
-import styles from "./CreatePage.module.css";
 // import { create } from "../services/carServices";
-import { useState } from "react";
-import Errors from "./Errors";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import Errors from "./Errors";
+import { AuthContext } from "../contexts/authContext";
+
+import styles from "./CreatePage.module.css";
 
 const formInitialState = {
     make: '',
@@ -20,6 +23,7 @@ const formInitialState = {
 const CreatePage = () => {
 
     const navigateFunc = useNavigate();
+    const { user, hasUser } = useContext(AuthContext);
 
     const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState(formInitialState);
@@ -43,7 +47,7 @@ const CreatePage = () => {
 
         const options = {
             method: 'POST',
-            headers: {},
+            headers: {'X-Authorization': user['accessToken'], 'Content-Type': 'application/json'},
             body: {}
         };
 
@@ -52,7 +56,7 @@ const CreatePage = () => {
             entireFormValidator();
             options.body = JSON.stringify(formValues);
             // console.log(options.body);
-            const response = await fetch('http://localhost:3030/jsonstore/cars', options);
+            const response = await fetch('http://localhost:3030/data/cars', options);
             const newCar = await response.json();
             // console.log(newCar);
             resetFormHandler();

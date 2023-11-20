@@ -21,12 +21,15 @@ const DetailsPage = () => {
         };
 
         const requests = [
-            fetch(`http://localhost:3030/jsonstore/cars/${id}`, { signal: abortController.signal }, options),
-            fetch('http://localhost:3030/jsonstore/equipment', { signal: abortController.signal }, options),
+            fetch(`http://localhost:3030/data/cars/${id}`, { signal: abortController.signal }, options),
+            fetch('http://localhost:3030/data/equipment', { signal: abortController.signal }, options),
         ];
 
         Promise.all(requests)
             .then(async ([car, equipment]) => {
+                if (car.status == 404 || equipment.status == 404) {
+                    throw new Error;
+                }
                 const c = await car.json();
                 const e = await equipment.json();
                 return [c, e];

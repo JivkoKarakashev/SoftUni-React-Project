@@ -62,7 +62,7 @@ function App() {
         setUser({});
         navigateFunc('auth/login');
     };
-    console.log(user);
+    // console.log(user);
 
     const authContext = {
         onLogin,

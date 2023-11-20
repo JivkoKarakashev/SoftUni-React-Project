@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+
+import { AuthContext } from "../contexts/authContext";
 
 import styles from "./DecoratePage.module.css";
 
@@ -22,23 +24,24 @@ const checkBoxesInitialState = {
 
 const DecoratePage = () => {
 
+    const navigateFunc = useNavigate();
+    const { user, hasUser } = useContext(AuthContext);
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [equipment, setEquipment] = useState(checkBoxesInitialState);
-    const navigateFunc = useNavigate();
 
     useEffect(() => {
         const abortController = new AbortController();
 
         const options = {
             method: 'GET',
-            headers: {},
+            headers: {['X-Authorization']: user['accessToken']},
             body: {}
         };
 
         const requests = [
-            fetch(`http://localhost:3030/jsonstore/cars/${id}`, { signal: abortController.signal }, options),
-            fetch('http://localhost:3030/jsonstore/equipment', { signal: abortController.signal }, options),
+            fetch(`http://localhost:3030/data/cars/${id}`, { signal: abortController.signal }, options),
+            fetch('http://localhost:3030/data/equipment', { signal: abortController.signal }, options),
         ];
 
         Promise.all(requests)
@@ -70,7 +73,7 @@ const DecoratePage = () => {
             .catch(() => navigateFunc('/404'));
 
             return () => abortController.abort();
-    }, [id, navigateFunc]);
+    }, [id, navigateFunc, user]);
 
     function checkBoxSwitcher(e) {
         // console.log(e.target);
@@ -91,26 +94,29 @@ const DecoratePage = () => {
 
         const options = {
             method: 'PUT',
-            headers: {},
+            headers: {'X-Authorization': user['accessToken'], 'Content-Type': 'application/json' },
             body: null
         };
 
         try {
             const selected = Object.entries(equipment).filter(e => e[1] == true).map(e => e[0]);
-            const response = await fetch('http://localhost:3030/jsonstore/equipment');
+            const response = await fetch('http://localhost:3030/data/equipment');
             const available = Object.values(await response.json()).filter(e => selected.some(eId => eId == e['nameId']));
             const selectedIds = available.map(e => e['_id']);
             // console.log(selected);
             // console.log(available);
             // console.log(selectedIds);
-            options.body = JSON.stringify([...selectedIds]);
+            car['equipmentId'] = [...selectedIds];
+            setCar(car);
+            options.body = JSON.stringify(car);
             // console.log(options.body);
-            await fetch(`http://localhost:3030/jsonstore/cars/${id}/equipmentId`, options);
+            await fetch(`http://localhost:3030/data/cars/${id}`, options);
             navigateFunc(`/details/${id}`);
         } catch (err) {
             console.log(err.message);
         }
     };
+    // console.log(car);
 
     return (
         // <--Decorate Page-->
