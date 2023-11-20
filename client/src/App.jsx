@@ -31,26 +31,43 @@ function App() {
     };
     const onRegister = async (formData) => {
         //  console.log(formData);
-         const options = {
+        const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: {}
         };
-        options.body = JSON.stringify(formData);
+        const { repass, ...regData } = formData;
+        if (repass !== regData['password'] ) {
+            throw new Error('Passwords don\'t match!');
+        }
+        // console.log(regData);
+        options.body = JSON.stringify(regData);
         // console.log(options.body);
         const response = await fetch('http://localhost:3030/users/register', options);
         if (response.status == 409) {
             throw response;
         }
         const userData = await response.json();
-        setUser(userData);
+        // console.log(userData);
+        const { _id, accessToken, email, username } = userData;
+        setUser({ _id, accessToken, email, username });
         navigateFunc('/');
+    };
+    const onLogout = async () => {
+        const options = {
+            method: 'GET',
+            headers: {['X-Authorization']: user['accessToken']},
+        };
+        await fetch('http://localhost:3030/users/logout', options);
+        setUser({});
+        navigateFunc('auth/login');
     };
     console.log(user);
 
     const authContext = {
         onLogin,
         onRegister,
+        onLogout,
         user,
         hasUser: !!user['accessToken']
     };

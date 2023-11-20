@@ -37,14 +37,15 @@ const RegisterPage = () => {
             entireFormValidator();
             await onRegister(formValues);
         } catch (err) {
+            let error = err;
             if (err.status == 409) {
-                const error = await err.json();
+                error = await err.json();
                 // console.log(error);
-                setShowErrorBox(state => ({
-                    ...state,
-                    'message': error['message']
-                }));
             }
+            setShowErrorBox(state => ({
+                ...state,
+                'message': error['message']
+            }));
             return;
         }
     };
