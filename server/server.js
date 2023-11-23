@@ -1548,7 +1548,8 @@
                 description: "A car USB socket is used to power or enable portable devices to work in a car.",
                 image: "https://i.postimg.cc/jjWCxZnb/usb-drive.png"
             }
-        }
+        },
+        bought: {},
     };
     var rules$1 = {
     	users: {
