@@ -47,7 +47,7 @@ const CreatePage = () => {
 
         const options = {
             method: 'POST',
-            headers: {'X-Authorization': user['accessToken'], 'Content-Type': 'application/json'},
+            headers: { 'X-Authorization': user['accessToken'], 'Content-Type': 'application/json' },
             body: {}
         };
 
@@ -106,9 +106,9 @@ const CreatePage = () => {
             ...errors
         }));
         if (Object.values(errors).some(v => v)) {
-            throw Error('All fields are required!');            
+            throw Error('All fields are required!');
         }
-    } 
+    }
 
     return (
         // <--Create Page-->

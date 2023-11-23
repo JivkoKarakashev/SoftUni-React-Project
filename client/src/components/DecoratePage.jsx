@@ -46,6 +46,9 @@ const DecoratePage = () => {
 
         Promise.all(requests)
             .then(async ([car, equipment]) => {
+                if (car.status == 404 || equipment.status == 404) {
+                    throw new Error;
+                }
                 const c = await car.json();
                 const e = await equipment.json();
                 return [c, e];

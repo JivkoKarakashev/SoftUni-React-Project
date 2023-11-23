@@ -64,7 +64,6 @@ const DetailsPage = () => {
                     const carOwnerId = car['_ownerId'];
                     details['isOwner'] = user['_id'] == carOwnerId;
                     details['canBuy'] = details.isOwner == false && bought == 0;
-                    // details['canBuy'] = details.isOwner == false && car['buyerId'] == '';
                     // console.log(details);
                     setCarDetails((state) => ({
                         ...state,
@@ -77,8 +76,8 @@ const DetailsPage = () => {
 
         return () => abortController.abort();
     }, [id, navigateFunc, user, hasUser]);
-    console.log(carDetails);
-    console.log(sold);
+    // console.log(carDetails);
+    // console.log(sold);
 
     const buyHandler = async (e) => {
         e.preventDefault();
@@ -129,7 +128,7 @@ const DetailsPage = () => {
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`}>Delete</Link>)}
                             {!carDetails['isOwner'] && carDetails['canBuy'] && (<Link className={styles["action"]} to={`/details/${id}/buy`} onClick={buyHandler}>Buy</Link>)}
-                            {sold != 0 &&(<div><strong>Car was Sold! Try another Ad!</strong></div>)}
+                            {hasUser && sold != 0 && (<div><strong>The Car was Sold!</strong></div>)}
                         </div>
                     </div>
                 </main>
