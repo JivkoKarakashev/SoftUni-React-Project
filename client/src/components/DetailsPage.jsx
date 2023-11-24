@@ -113,7 +113,7 @@ const DetailsPage = () => {
                     </div>
                     <div className={`${styles['content']} ${styles['pad-med']}`}>
                         <p>Mileage: <strong>{car.mileage}</strong></p>
-                        <p>description</p>
+                        <p>description {car.description}</p>
                         <div className={styles["align-center"]}>
                             <div>Price: <strong>{car.price}$</strong></div>
                             <div>Fuel: <strong>{car.fuel}</strong></div>

@@ -25,7 +25,7 @@ const checkBoxesInitialState = {
 const DecoratePage = () => {
 
     const navigateFunc = useNavigate();
-    const { user, hasUser } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [equipment, setEquipment] = useState(checkBoxesInitialState);

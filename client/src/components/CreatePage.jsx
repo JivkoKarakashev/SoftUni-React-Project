@@ -23,7 +23,7 @@ const formInitialState = {
 const CreatePage = () => {
 
     const navigateFunc = useNavigate();
-    const { user, hasUser } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState(formInitialState);
