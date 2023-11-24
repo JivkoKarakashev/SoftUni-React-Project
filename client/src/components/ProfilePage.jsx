@@ -1,8 +1,38 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+
+import { AuthContext } from "../contexts/AuthContext";
+import ProfileItem from "./ProfileItem";
 
 import styles from "./ProfilePage.module.css";
 
 const ProfilePage = () => {
+    const { user } = useContext(AuthContext);
+    const [cars, setCars] = useState([]);
+
+    useEffect(() => {
+        const abortController = new AbortController();
+        // console.log(user);
+
+        const options = {
+            method: 'GET',
+            headers: { ['X-Authorization']: user['accessToken'] },
+            body: {}
+        };
+
+        fetch(`http://localhost:3030/data/cars?where=_ownerId%3D%22${user['_id']}%22`, { signal: abortController.signal }, options)
+            .then(res => res.json())
+            .then(result => {
+                // result = [];
+                // return console.log(result);
+                setCars(result);
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+
+        return () => abortController.abort();
+    }, [user]);
+
     return (
         // <--Profile Page-->
         <section id="profile-section">
@@ -13,55 +43,19 @@ const ProfilePage = () => {
                         <div className={styles["avatar"]}>
                             <img src="/static/images/profilePic.png" />
                         </div>
-                        <h2>peter@abv.bg</h2>
+                        <h2>{user['email']}</h2>
                     </div>
                 </main>
             </div>
             <div className={styles["board"]}>
-                {/* <--If there are event--> */}
-                <div className={`${styles["item"]} ${styles["padded"]}`}>
-                    <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
-                        <div className={styles["event-info"]}>
-                            <img src="https://drive.google.com/uc?export=view&id=1TjXDW46Yc5rcDA9st254HsAiXveRATIW" />
-                            <h2>make - model</h2>
-                            <h6>year</h6>
-                            <div className={styles["align-right"]}>
-                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
-                <div className={`${styles["item"]} ${styles["padded"]}`}>
-                    <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
-                        <div className={styles["event-info"]}>
-                            <img src="https://drive.google.com/uc?export=view&id=1V6o8GWLwiDs5h6SlsWjqTBLpZv61l-6t" />
-                            <h2>make - model</h2>
-                            <h6>year</h6>
-                            <div className={styles["align-right"]}>
-                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
-                <div className={`${styles["item"]} ${styles["padded"]}`}>
-                    <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
-                        <div className={styles["event-info"]}>
-                            <img src="https://drive.google.com/uc?export=view&id=1Qz4V1qpizN7hmNUx_gxxzZacnbB7gchw" />
-                            <h2>make - model</h2>
-                            <h6>year</h6>
-                            <div className={styles["align-right"]}>
-                                <Link to="/details/:id" className={styles["action"]}>Details</Link>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
-                {/* <--If there are no event--> */}
-                <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
+                {/* <--If there are published ads--> */}
+                {cars.length != 0 && cars.map((car) =>
+                    <ProfileItem key={car['_id']}{...car} />
+                )}
+                {/* <--If there are no published ads--> */}
+                {cars.length == 0 && <main className={`${styles["item"]} ${styles["pad-large"]} ${styles["align-center"]}`}>
                     <p>This user has no published Ad yet!</p>
-                </main>
+                </main>}
             </div>
         </section>
     );

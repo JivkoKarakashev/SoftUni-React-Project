@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import CatalogItem from "./CatalogItem";
 import { Link } from "react-router-dom";
+
+import CatalogItem from "./CatalogItem";
 
 import styles from "./CatalogPage.module.css";
 
