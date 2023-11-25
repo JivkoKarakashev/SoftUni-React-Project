@@ -11,14 +11,29 @@ const CatalogPage = () => {
     useEffect(() => {
         const abortController = new AbortController();
 
-        fetch('http://localhost:3030/data/cars', { signal: abortController.signal })
-            .then(res => res.json())
+        const requests = [
+            fetch('http://localhost:3030/data/cars', { signal: abortController.signal }),
+            fetch('http://localhost:3030/data/bought', { signal: abortController.signal })
+        ];
+
+        Promise.all(requests)
+            .then(async ([cars, purchased]) => {
+                const c = await cars.json();
+                const p = await purchased.json();
+                return [c, p];
+            })
             .then(result => {
                 // result = [];
-                // return console.log(result);
-                const carsEntries = Object.values(result);
-                // console.log(carsEntries);
-                setCars(carsEntries);
+                const [cars, purchased] = result;
+                // console.log(cars);
+                let purchasedIds = [];
+                // console.log(purchased);
+                if (purchased.length != 0) {
+                    purchasedIds = purchased.map(car => car['productId']);                    
+                }
+                const notPurchased = cars.filter(car => !purchasedIds.includes(car['_id']));
+                // return console.log(notPurchased);
+                setCars(notPurchased);
             })
             .catch(err => {
                 console.log(err.message);

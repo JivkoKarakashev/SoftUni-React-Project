@@ -6,13 +6,27 @@ import { AuthContext } from "../contexts/AuthContext";
 
 import styles from "./EditPage.module.css";
 
+const formInitialState = {
+    make: '',
+    model: '',
+    mileage: '',
+    fuel: '',
+    year: '',
+    location: '',
+    image: '',
+    price: '',
+    description: '',
+    buyerId: '',
+    equipmentId: []
+};
+
 const EditPage = () => {
     const navigateFunc = useNavigate();
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     // const [car, setCar] = useState([]);
 
-    const [formValues, setFormValues] = useState({});
+    const [formValues, setFormValues] = useState(formInitialState);
     const [showErrorFields, setshowErrorFields] = useState({});
     const [showErrorBox, setShowErrorBox] = useState({});
 
