@@ -106,15 +106,22 @@ const DetailsPage = () => {
 
     const deleteHandler = async (e) => {
         e.preventDefault();
+        
         if (!isOwner) {
-            console.log(isOwner);
+            // console.log(isOwner);
             return navigateFunc('/auth/login');
         }
-        const choice = confirm(`Are you sure want to delete fact ${car['make']} ${car['model']}`);
-        if (choice) {
-            console.log('DELETED!');
-            // await fetch(`http://localhost:3030/data/cars/${id}`);
-            // navigateFunc('/catalog');
+
+        const options = {
+            method: 'DELETE',
+            headers: { 'X-Authorization': user['accessToken'], 'Content-Type': 'application/json' },
+            body: null
+        };
+
+        const hasConfirmed = confirm(`Are you sure want to delete fact ${car['make']} ${car['model']}`);
+        if (hasConfirmed) {
+            await fetch(`http://localhost:3030/data/cars/${id}`, options);
+            navigateFunc('/catalog');
         }
     }
 
@@ -140,6 +147,7 @@ const DetailsPage = () => {
                                     <EquipmentItem key={e['_id']}{...e} />
                                 )}
                             </ul>
+                            <Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>)}
