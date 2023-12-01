@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 
 import EquipmentItem from "./EquipmentItem";
 import { AuthContext } from "../contexts/authContext";
+import { OwnerContext } from "../contexts/OwnerContext";
 
 import styles from "./DetailsPage.module.css";
 
@@ -15,6 +16,7 @@ const DetailsPage = () => {
 
     const navigateFunc = useNavigate();
     const { user, hasUser } = useContext(AuthContext);
+    const { isOwner } = useContext(OwnerContext);
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [equipment, setEquipment] = useState([]);
@@ -102,6 +104,20 @@ const DetailsPage = () => {
         }
     };
 
+    const deleteHandler = async (e) => {
+        e.preventDefault();
+        if (!isOwner) {
+            console.log(isOwner);
+            return navigateFunc('/auth/login');
+        }
+        const choice = confirm(`Are you sure want to delete fact ${car['make']} ${car['model']}`);
+        if (choice) {
+            console.log('DELETED!');
+            // await fetch(`http://localhost:3030/data/cars/${id}`);
+            // navigateFunc('/catalog');
+        }
+    }
+
     return (
         // <--Details Page-->
         <section id="details-section">
@@ -126,7 +142,7 @@ const DetailsPage = () => {
                             </ul>
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
-                            {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`}>Delete</Link>)}
+                            {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>)}
                             {!carDetails['isOwner'] && carDetails['canBuy'] && (<Link className={styles["action"]} to={`/details/${id}/buy`} onClick={buyHandler}>Buy</Link>)}
                             {hasUser && sold != 0 && (<div><strong>The Car was Sold!</strong></div>)}
                         </div>

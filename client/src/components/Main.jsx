@@ -12,6 +12,7 @@ import Page404 from "./Page404";
 import { Routes, Route } from "react-router-dom";
 
 import AuthGuard from "./guards/AuthGuard";
+import OwnerGuard from "./guards/OwnerGuard";
 
 const Main = () => {
     return (
@@ -24,8 +25,10 @@ const Main = () => {
                 <Route path="/details/:id" element={<DetailsPage />} />
                 <Route element={<AuthGuard />}>
                     <Route path="/create" element={<CreatePage />} />
-                    <Route path="/details/:id/decorate" element={<DecoratePage />} />
-                    <Route path="/details/:id/edit" element={<EditPage />} />
+                    <Route element={<OwnerGuard />}>
+                        <Route path="/details/:id/decorate" element={<DecoratePage />} />
+                        <Route path="/details/:id/edit" element={<EditPage />} />
+                    </Route>
                     <Route path="/profile" element={<ProfilePage />} />
                 </Route>
                 <Route path="/404" element={<Page404 />} />

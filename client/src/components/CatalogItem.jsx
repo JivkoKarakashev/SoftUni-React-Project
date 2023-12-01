@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./CatalogPage.module.css";
 
+import { OwnerContext } from "../contexts/OwnerContext";
+
 const CatalogItem = ({
     _id,
+    _ownerId,
     make,
     model,
     fuel,
@@ -12,7 +16,12 @@ const CatalogItem = ({
     image,
     price,
 }) => {
-    
+    const { onDetailsClick } = useContext(OwnerContext);
+
+    const detailsClickHandler = () => {
+        onDetailsClick(_ownerId);
+    };
+
     return (
         <li className={styles["item"]}>
             <header className={styles["pad-med"]}>
@@ -27,7 +36,7 @@ const CatalogItem = ({
                 <p>Fuel: <strong>{fuel}</strong></p>
                 <p>Year: <strong>{year}</strong></p>
                 <p>Price: <strong>{price}$</strong></p>
-                <Link className={styles["action"]} to={`/details/${_id}`}>See details</Link>
+                <Link className={styles["action"]} to={`/details/${_id}`} onClick={detailsClickHandler}>See details</Link>
             </footer>
         </li>
     );

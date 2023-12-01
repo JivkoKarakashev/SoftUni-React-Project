@@ -3,6 +3,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 import { AuthProvider } from "./contexts/authContext";
+import { OwnerProvider } from "./contexts/OwnerContext";
 
 import styles from "./App.module.css";
 
@@ -12,7 +13,9 @@ function App() {
         <AuthProvider>
             <div id="page-content" className={styles["page-content"]}>
                 <Header />
-                <Main />
+                <OwnerProvider>
+                    <Main />
+                </OwnerProvider>
                 <Footer />
             </div>
         </AuthProvider>
