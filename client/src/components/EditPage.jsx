@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import Errors from "./Errors";
 import { AuthContext } from "../contexts/AuthContext";
@@ -161,6 +161,7 @@ const EditPage = () => {
                         <label><span>Description</span><textarea name="description" value={formValues.description} className={showErrorFields['description'] && styles["field-error"]} onChange={changeHandler} ></textarea></label>
                         <div className={styles["align-center"]}>
                             <input className={styles["action"]} type="submit" value="Update Item" />
+                            <Link className={styles["action"]} to={`/details/${id}`}>Back to Details</Link>
                         </div>
                     </div>
                 </form>

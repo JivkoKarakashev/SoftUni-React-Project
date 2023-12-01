@@ -147,7 +147,6 @@ const DetailsPage = () => {
                                     <EquipmentItem key={e['_id']}{...e} />
                                 )}
                             </ul>
-                            <Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
                             {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>)}

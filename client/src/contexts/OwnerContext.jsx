@@ -11,9 +11,6 @@ const OwnerProvider = ({ children }) => {
     const onDetailsClick = async (ownerId) => {
         setOwner(user['_id'] == ownerId);
     };
-    // const onBuyClick = async (formData) => {
-
-    // };
     // console.log(owner);
 
     const ownerContext = {

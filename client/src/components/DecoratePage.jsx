@@ -149,8 +149,8 @@ const DecoratePage = () => {
                                 <li><label><input type="checkbox" name="seat-heating" checked={equipment['seat-heating']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/MGhHvV1j/seat-heat.png" /> Seat heating </label> </li>
                                 <li><label><input type="checkbox" name="usb" checked={equipment['usb']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/jjWCxZnb/usb-drive.png" /> USB </label> </li>
                             </ul>
-                            <button className={`${styles["action"]}`}>Confirm Equipment</button>
-                            <Link className={`${styles["action"]}`} to={`/details/${id}`}>Back to Details</Link>
+                            <button className={styles["action"]}>Confirm Equipment</button>
+                            <Link className={styles["action"]} to={`/details/${id}`}>Back to Details</Link>
                         </form>
                     </div>
                 </main>
