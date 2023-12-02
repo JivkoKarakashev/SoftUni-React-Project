@@ -15,7 +15,6 @@ const OwnerProvider = ({ children }) => {
 
     const ownerContext = {
         onDetailsClick,
-        // onBuyClick,
         isOwner: !!owner
     };
 
