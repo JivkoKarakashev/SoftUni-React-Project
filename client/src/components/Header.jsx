@@ -32,6 +32,7 @@ const Header = () => {
             <nav className={`${styles["main-nav"]} ${styles["nav-mid"]}`}>
                 <ul>
                     <li><Link to="/">Home</Link></li>
+                    <li><Link to="/search">Search</Link></li>
                     <li><Link to="/catalog">Catalog</Link></li>
                     {/* <!--Only users--> */}
                     {hasUser && (

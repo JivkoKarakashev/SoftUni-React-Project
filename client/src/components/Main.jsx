@@ -7,6 +7,7 @@ import DecoratePage from "./DecoratePage";
 import EditPage from "./EditPage";
 import DetailsPage from "./DetailsPage";
 import ProfilePage from "./ProfilePage";
+import SearchPage from "./SearchPage";
 import Page404 from "./Page404";
 
 import { Routes, Route } from "react-router-dom";
@@ -31,6 +32,7 @@ const Main = () => {
                     </Route>
                     <Route path="/profile" element={<ProfilePage />} />
                 </Route>
+                <Route path="/search" element={<SearchPage />} />
                 <Route path="/404" element={<Page404 />} />
                 <Route path="*" element={<Page404 />} />
             </Routes>
