@@ -77,16 +77,16 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 7.	**Publish page:**
 	The Publish page is available to logged-in users. It contains a form for creating new listings. User can publish listing with send request, if there are no empty fields.
 	
-	REST Service API Endpoint:
-	Method:POST
-	Request headers:
+	**REST Service API Endpoint:**    
+	-   _Method: POST_
+	-   _Request headers:_
 	```json
 		{
 			"X-Authorization": "accessToken",
 			"Content-Type": "application/json"
 		}
     ```
-	Request body:
+	-   _Request body:_
 	```json	
 		{ 
 			"make": "string",
@@ -100,7 +100,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 			"description": "string"
 		}	
     ```
-	URL: http://localhost:3030/data/cars
+	-   _URL: http://localhost:3030/data/cars_
 	
 	Upon success, the REST service returns the newly created record.
 	After successful creation, the user is redirected to the Details page of currently published item.
