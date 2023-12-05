@@ -263,12 +263,12 @@ TO DO...
 
 ## Project Structure
 
-	-   **`/client`**: Contains the SPA.
-    	-   `/public`: Static assets, icons, images and base style css files.
+-   **`/client`**: Contains the SPA.
+	-   `/public`: Static assets, icons, images and base style css files.
     	-   `/src`: React components, style css, and business logic, contexts, guards and requester services.
 			-	`/components`: React components, style css, and business logic.
     		-   `/guards`: React AuthGuard and OwnerGuard components that check the authentication and authorization of the current user.
     		-   `/contexts`: React AuthContext and OwnerContext components that share authentication and authorization states between components.
 			-	`/services`: JS logic with requester functions for the REST API Service.
 
-	-   **`/server`**: Contains REST API Service with data folder. In this folder are stored .json files with premade data.
+-   **`/server`**: Contains REST API Service with data folder. In this folder are stored .json files with premade data.
