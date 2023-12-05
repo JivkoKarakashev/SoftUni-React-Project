@@ -20,12 +20,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Features](#features)
 -   [Application development description](#application-development-description)
 -   [Usage](#usage)
-
--   [Project Structure](#project-structure)
--   [Running the Application](#running-the-application)
--   [Running tests](#running-tests)
--   [API Endpoints](#api-endpoints)
--   [License](#license)
+-   TO DO...
 
 ## Application development description
 
