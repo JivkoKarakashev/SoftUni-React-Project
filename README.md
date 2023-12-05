@@ -20,12 +20,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Features](#features)
 -   [Application development description](#application-development-description)
 -   [Usage](#usage)
-
--   [Project Structure](#project-structure)
--   [Running the Application](#running-the-application)
--   [Running tests](#running-tests)
--   [API Endpoints](#api-endpoints)
--   [License](#license)
+TO DO...
 
 ## Application development description
 
@@ -59,7 +54,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
     }
     ```
 	-   _URL: http://localhost:3030/users/login_
-    
+
 	The Login page contains a form for existing user authentication. By providing an email and password, the app login user in the system if there are no empty fields.
 	Upon success, the REST service returns information about the existing user along with a property accessToken, which contains the session token for the user, in order to be able to perform authenticated requests.
 	After successful login, the user is redirected to the Home page. If there is an error, an appropriate error message is displayed.
@@ -102,7 +97,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 	All users are welcomed to the Home page, where they can proceed to Catalog or Publish pages.
 
 6.	**Catalog page:**
-	This page displays a list of all listings that have not yet been purchased in the system. Clicking on the details button in the cards leads to the details page for the selected listing.
+	This page displays a list of all listings that have not yet been purchased in the system. Clicking on the [Details] button in the cards leads to the details page for the selected listing.
 
 	**REST Service API Endpoints:**
 	-   _Method: GET_ 
@@ -137,17 +132,17 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
     ```
 	-   _URL: http://localhost:3030/data/cars_
 	
-	Upon success, the REST service returns the newly created record.
+	Upon success, the REST service returns the newly created item.
 	After successful creation, the user is redirected to the Details page of currently published item.
 
 8.	**Details page:**
-	All users are able to view details about listings. Clicking on the details button in the cards leads to the details page for the selected listing. If the currently logged-in user is the creator of the listing, the Decorate, Edit and Delete buttons are displayed.
+	All users are able to view details about listings. Clicking on the [Details] button in the cards leads to the details page for the selected listing. If the currently logged-in user is the creator of the listing, the [Decorate], [Edit] and [Delete] buttons are displayed.
 	Every logged-in user is able to buy the car from the ad, but not his own. By clicking on the [Buy] button. [Buy] button is displayed only for logged-in users who are not authors for the ad.
 	
     **REST Service API Endpoints for Details view:**
 	-   _Method: GET_
 	-   _URL: http://localhost:3030/data/cars/{:carId} - for selected car ad_
-	-   _URL:http://localhost:3030/data/equipment - for viewing all extras for this car_
+	-   _URL:http://localhost:3030/data/equipment - for viewing all equipment for this car_
 	-   _URL:http://localhost:3030/data/bought?where=productId%3D%22${:carId}%22&distinct=_ownerId&count - for checking if the car have been already purchased_
 	
 	**REST Service API Endpoints for Buying action:**
@@ -163,4 +158,80 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 
 	After successful offer purchasing, the [Buy] button is not available any more and text with "The Car was Sold!" is displayed on its place.
 	The ad is removed from the Catalog page and is only visible on the Profile page of the user who created it.
-	
+
+9.  **Decorate Listing**
+    The Decorate page is available only to logged-in user who is at the same time and author of the listing. Clicking on the [Decorate] button of a particular offer on the Details page, redirects the user to the Decorate page. It contains checkboxes with options that allows author of the ad to decorate the selected car according to the extra equipment come with.
+    To confirm decoration, author have to send request by clicking on [Confirm-Equipment] button.
+    The author can reject the equipment changes made by pressing the [Back-to-Details] button and return back to the Details page of the current listing.
+
+    **REST Service API Endpoints for equipment view of selected car:**
+	-   _Method: GET
+	-   _Request headers:_
+	```json
+		{
+			"X-Authorization": "accessToken"
+		}
+    ```
+	-   _URL: http://localhost:3030/data/cars/${carId}  - for selected car ad_
+	-   _URL: http://localhost:3030/data/equipment - for viewing all available equipment to choose from_
+
+    **REST Service API Endpoints for Equipment confirmation action:**
+	-   _Method: PUT_
+	-   _Request headers:_
+    ```json
+        {
+            "X-Authorization": "accessToken",
+            "Content-Type": "application/json"
+        }
+    ```
+	-   _URL: http://localhost:3030/data/cars/${:carId}_
+
+    Upon success, the REST service returns the modified item.
+    After successful equipment confirmation request, the user is redirected to the Details page of the currently decorated item.
+
+10.  **Edit Listing**
+    The Edit page is available only to logged-in user who is at the same time and author of the listing. Clicking on the [Edit] button of a particular offer on the Details page, redirects user to the Edit page with all fields filled with the data for the offer. It contains a form with input fields for all relevant properties. The Author of the offer is able to update it by sending the correct filled form with no empty fields in it before the request making.
+
+    **REST Service API Endpoint:**
+	-   _Method: PUT_
+	-   _Request headers:_
+	```json
+		{
+			"X-Authorization": "accessToken",
+			"Content-Type": "application/json"
+		}
+    ```
+	-   _Request body:_
+	```json	
+		{ 
+			"make": "string",
+			"model": "string",
+			"mileage": "integer number",
+			"fuel": "string",
+			"year": "integer number",
+			"location": "string",
+			"image": "string (URL address)",
+			"price": "integer or floating-point number",
+			"description": "string"
+		}	
+    ```
+	-   _URL: http://localhost:3030/data/cars/${:carId}_
+
+    Upon success, the REST service returns the modified item.
+    After successful edit request, the user is redirected to the Details page of the currently edited item.
+
+11.  **Delete Listing**
+    The delete action is available to logged-in user, who is at the same time and author of the listing. When the author clicks on the [Delete] button of a particular offer on the Details page, a confirmation dialog is displayed, and upon confirming the dialog, the listing is deleted from the system.
+
+    **REST Service API Endpoints:**
+	-   _Method: DELETE_
+	-   _Request headers:_
+    ```json
+        {
+            "X-Authorization": "accessToken",
+            "Content-Type": "application/json"
+        }
+    ```
+	-   _URL: http://localhost:3030/data/cars/${:carId}_
+    Upon success, the REST service returns Object, containing the time of deletion of selected item.
+    After successful delete request, the user is redirected to the Catalog page.
