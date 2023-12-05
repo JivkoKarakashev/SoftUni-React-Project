@@ -135,7 +135,7 @@ const DetailsPage = () => {
                         <img src={car.image} className={styles["img-large"]} />
                     </div>
                     <div className={`${styles['content']} ${styles['pad-med']}`}>
-                        <p>Mileage: <strong>{car.mileage}</strong></p>
+                        <p>Mileage: <strong>{car.mileage} km</strong></p>
                         <p>description {car.description}</p>
                         <div className={styles["align-center"]}>
                             <div>Price: <strong>{car.price}$</strong></div>

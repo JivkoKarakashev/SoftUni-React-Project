@@ -86,7 +86,7 @@ const SearchPage = () => {
                 </ul>
                 {cars.length == 0 &&
                     <main className={`${styles["item"]} ${styles["align-center"]}`}>
-                        <p><strong>No Result!</strong></p>
+                        <p><strong>No Results!</strong></p>
                     </main>
                 }
             </section>
