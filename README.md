@@ -76,7 +76,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 	URL:http://localhost:3030/data/bought - for all listings that have been purchased
 7.	**Publish page:**
 	The Publish page is available to logged-in users. It contains a form for creating new listings. User can publish listing with send request, if there are no empty fields.
-	```plaintext
+	
 	REST Service API Endpoint:
 	Method:POST
 	Request headers:
@@ -100,7 +100,6 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 		}
 	```
 	URL: http://localhost:3030/data/cars
-	```
 	
 	Upon success, the REST service returns the newly created record.
 	After successful creation, the user is redirected to the Details page of currently published item.
