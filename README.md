@@ -189,7 +189,7 @@ TO DO...
     Upon success, the REST service returns the modified item.
     After successful equipment confirmation request, the user is redirected to the Details page of the currently decorated item.
 
-10.  **Edit Listing**
+10. **Edit Listing**
     The Edit page is available only to logged-in user who is at the same time and author of the listing. Clicking on the [Edit] button of a particular offer on the Details page, redirects user to the Edit page with all fields filled with the data for the offer. It contains a form with input fields for all relevant properties. The Author of the offer is able to update it by sending the correct filled form with no empty fields in it before the request making.
 
     **REST Service API Endpoint:**
@@ -220,7 +220,7 @@ TO DO...
     Upon success, the REST service returns the modified item.
     After successful edit request, the user is redirected to the Details page of the currently edited item.
 
-11.  **Delete Listing**
+11. **Delete Listing**
     The delete action is available to logged-in user, who is at the same time and author of the listing. When the author clicks on the [Delete] button of a particular offer on the Details page, a confirmation dialog is displayed, and upon confirming the dialog, the listing is deleted from the system.
 
     **REST Service API Endpoints:**
