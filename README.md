@@ -85,6 +85,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 			"X-Authorization": "accessToken",
 			"Content-Type": "application/json"
 		}
+    ```
 	Request body:
 	```json	
 		{ 
@@ -97,8 +98,8 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 			"image": "string (URL address)",
 			"price": "integer or floating-point number",
 			"description": "string"
-		}
-	```
+		}	
+    ```
 	URL: http://localhost:3030/data/cars
 	
 	Upon success, the REST service returns the newly created record.
