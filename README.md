@@ -20,7 +20,12 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Features](#features)
 -   [Application development description](#application-development-description)
 -   [Usage](#usage)
--   TO DO...
+
+-   [Project Structure](#project-structure)
+-   [Running the Application](#running-the-application)
+-   [Running tests](#running-tests)
+-   [API Endpoints](#api-endpoints)
+-   [License](#license)
 
 ## Application development description
 
@@ -71,25 +76,32 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 	URL:http://localhost:3030/data/bought - for all listings that have been purchased
 7.	**Publish page:**
 	The Publish page is available to logged-in users. It contains a form for creating new listings. User can publish listing with send request, if there are no empty fields.
+	```plaintext
 	REST Service API Endpoint:
-	```json
 	Method:POST
-	Request headers:{ 'X-Authorization': 'accessToken', 'Content-Type': 'application/json' }
-	Request body:	
-		{ 
-			make: 'string',
-			model: 'string',
-			mileage: integer'number',
-			fuel: 'string',
-			year: 'number',
-			location: 'string',
-			image: 'string' (URL address),
-			price: integer or floating-point 'number',
-			description: 'string'
+	Request headers:
+	```json
+		{
+			"X-Authorization": "accessToken",
+			"Content-Type": "application/json"
 		}
-	
+	Request body:
+	```json	
+		{ 
+			"make": "string",
+			"model": "string",
+			"mileage": "integer number",
+			"fuel": "string",
+			"year": "integer number",
+			"location": "string",
+			"image": "string (URL address)",
+			"price": "integer or floating-point number",
+			"description": "string"
+		}
+	```
 	URL: http://localhost:3030/data/cars
 	```
+	
 	Upon success, the REST service returns the newly created record.
 	After successful creation, the user is redirected to the Details page of currently published item.
 8.	**Details page:**
@@ -107,3 +119,4 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 	URL:http://localhost:3030/data/bought  - for setting up the car status as Sold
 	After successful offer purchasing, the [Buy] button is not available any more and text with "The Car was Sold!" is displayed on its place.
 	The ad is removed from the Catalog page and is only visible on the Profile page of the user who created it.
+	
