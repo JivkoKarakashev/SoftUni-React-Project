@@ -277,9 +277,9 @@ TO DO...
 ## How to run it?
 
 1. **Prerequisites:**
--	`_Node.js_`: Make sure you have [Node.js](https://nodejs.org/) and npm installed on your machine. You can download them from https://nodejs.org/.
+-	_`Node.js`_: Make sure you have [Node.js](https://nodejs.org/) and npm installed on your machine. You can download them from https://nodejs.org/.
 
--	`_VSCode_`: [Install Visual Studio Code](https://code.visualstudio.com/) (VSCode) if you haven't already. You can download it from https://code.visualstudio.com/.
+-	_`VSCode`_: [Install Visual Studio Code](https://code.visualstudio.com/) (VSCode) if you haven't already. You can download it from https://code.visualstudio.com/.
 
 2. **Steps**
 
@@ -288,27 +288,27 @@ TO DO...
 	```bash
 	git clone https://github.com/JivkoKarakashev/SoftUni-React-Project.git
 	```
-	-	Navigate to main folder for project:
+	-	Navigate to the root folder of the project:
 	```bash
 	cd SoftUni-React-Project
 	```
 -	**Install Client Dependencies:**
 	-	Navigate to the root directory of the project and install the dependencies for the client.
-		-	`# Install client dependencies`
+		-	# Install client dependencies
 		```bash
 		cd client
 		```
 -	**Start the Server:**
 	-	Navigate to the server directory of the project and start the Node.js server.
-		-	`# In the 'server' directory`
+		-	# In the 'server' directory
 		```bash
 		node server.js
 		```
-This will start the RESTful API Service, and you should see output 'Server started on port 3030. You can make requests to http://localhost:3030/' indicating that the service API is running. It should be accessible at http://localhost:3030.
+	This will start the RESTful API Service, and you should see output 'Server started on port 3030. You can make requests to http://localhost:3030/' indicating that the service API is running. It should be accessible at http://localhost:3030.
 -	**Start the Client Development Server:**
 	-	Open a new terminal window and navigate to the client directory. Start the Vite development server:
-		-	`# In the 'client' directory`
+		-	# In the 'client' directory
 		```bash
 		npm run dev
 		```
-This will start the development server, and you should see output indicating that the development server is running. It should be accessible at http://localhost:5173.
+	This will start the development server, and you should see output indicating that the development server is running. It should be accessible at http://localhost:5173.
