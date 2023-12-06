@@ -295,17 +295,21 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 	```
 -	**Install Client Dependencies:**
 	-	Navigate to the root directory of the project and install the dependencies for the client.
-		-	Navigate to the client directory
+		-	Navigate to the root directory and run:
 		```bash
 		cd client
 		```
-		-	Install client dependencies
+		-	In the 'client' directory, install client dependencies by running:
 		```bash
 		npm install
 		```
 -	**Start the Server:**
 	-	Navigate to the server directory of the project and start the Node.js server.
-		-	In the 'server' directory
+		-	Navigate to the root directory and run:
+		```bash
+		cd server
+		```
+		-	In the 'server' directory run:
 		```bash
 		node server.js
 		```
