@@ -22,6 +22,8 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Usage](#usage)
 -   [Project Structure](#project-structure)
 -	[How to run it?](#how-to-run-it)
+-	[License](#license)
+-	[Credits](#credits)
 
 ## Application development description
 
@@ -311,3 +313,11 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 		npm run dev
 		```
 	This will start the development server, and you should see output indicating that the development server is running. It should be accessible at http://localhost:5173.
+
+## License
+
+    This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit/) file for details.
+
+## Credits
+
+    This documentation is writen with the help of [ChatGPT](https://chatgpt.openai.com)
