@@ -298,6 +298,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 		-	Install client dependencies
 		```bash
 		cd client
+		npm install
 		```
 -	**Start the Server:**
 	-	Navigate to the server directory of the project and start the Node.js server.
