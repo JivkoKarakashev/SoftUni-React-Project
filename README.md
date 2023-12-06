@@ -22,7 +22,6 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Usage](#usage)
 -   [Project Structure](#project-structure)
 -	[How to run it?](#how-to-run-it)
-TO DO...
 
 ## Application development description
 
