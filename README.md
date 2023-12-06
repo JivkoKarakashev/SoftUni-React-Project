@@ -21,7 +21,7 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 -   [Application development description](#application-development-description)
 -   [Usage](#usage)
 -   [Project Structure](#project-structure)
--	[How to run it?](#how-to-run-it?)
+-	[How to run it?](#how-to-run-it)
 TO DO...
 
 ## Application development description
@@ -294,20 +294,20 @@ TO DO...
 	```
 -	**Install Client Dependencies:**
 	-	Navigate to the root directory of the project and install the dependencies for the client.
-		-	# Install client dependencies
+		-	Install client dependencies
 		```bash
 		cd client
 		```
 -	**Start the Server:**
 	-	Navigate to the server directory of the project and start the Node.js server.
-		-	# In the 'server' directory
+		-	In the 'server' directory
 		```bash
 		node server.js
 		```
 	This will start the RESTful API Service, and you should see output 'Server started on port 3030. You can make requests to http://localhost:3030/' indicating that the service API is running. It should be accessible at http://localhost:3030.
 -	**Start the Client Development Server:**
 	-	Open a new terminal window and navigate to the client directory. Start the Vite development server:
-		-	# In the 'client' directory
+		-	In the 'client' directory
 		```bash
 		npm run dev
 		```
