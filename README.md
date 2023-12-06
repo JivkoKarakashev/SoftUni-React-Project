@@ -316,8 +316,8 @@ Welcome to the Auto Occasion Application! This is a Single Page Application (SPA
 
 ## License
 
-    This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit/) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/mit/) file for details.
 
 ## Credits
 
-    This documentation is writen with the help of [ChatGPT](https://chatgpt.openai.com)
+This documentation is writen with the help of [ChatGPT](https://chatgpt.openai.com)
