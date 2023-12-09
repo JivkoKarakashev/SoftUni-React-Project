@@ -73,7 +73,7 @@ const EditPage = () => {
         Object.entries(formValues).forEach(([key, value]) => {
             // console.log(`${key} - ${value}`);
             trimedFormValues[key] = value;
-            if (key != 'equipmentId' && key != 'mileage' && key != 'year' && key != 'price' && key != 'image' && key != '_updatedOn') {
+            if (key != 'equipmentId' && key != 'mileage' && key != 'year' && key != 'price' && key != 'image' && key != '_updatedOn' && key != '_createdOn' && key != '_ownerId') {
                 // console.log(`${key} - ${value}`);
                 trimedFormValues[key] = value.trim();                
             }
