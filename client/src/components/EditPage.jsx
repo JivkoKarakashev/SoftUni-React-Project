@@ -68,6 +68,14 @@ const EditPage = () => {
 
     const updateHandler = async (e) => {
         e.preventDefault();
+        const trimedFormValues = {};
+        Object.entries(formValues).forEach(([key, value]) => {
+            // console.log(`${key} - ${value}`);
+            trimedFormValues[key] = value;
+            if (key != 'equipmentId' && key != '_createdOn' && key != '_id' && key != '_updatedOn' && key != '_ownerId') {
+                trimedFormValues[key] = value.trim();                
+            }
+        });
 
         const options = {
             method: 'PUT',
@@ -77,8 +85,8 @@ const EditPage = () => {
 
         // return console.log(formValues);
         try {
-            entireFormValidator();
-            const { make, model, mileage, fuel, year, location, image, price, description, equipmentId } = formValues;
+            entireFormValidator(trimedFormValues);
+            const { make, model, mileage, fuel, year, location, image, price, description, equipmentId } = trimedFormValues;
             options.body = JSON.stringify({ make, model, mileage, fuel, year, location, image, price, description, equipmentId });
             // console.log(options.body);
             const response = await fetch(`http://localhost:3030/data/cars/${id}`, options);
@@ -107,11 +115,11 @@ const EditPage = () => {
         }
     }
 
-    function entireFormValidator() {
+    function entireFormValidator(trimedFormValues) {
         // console.log(e.target.name);
         // console.log(formValues);
         const errors = {};
-        for (const [key, value] of Object.entries(formValues)) {
+        for (const [key, value] of Object.entries(trimedFormValues)) {
             // console.log(key, value);
             if (value === '') {
                 errors[key] = `${key} is required!`;

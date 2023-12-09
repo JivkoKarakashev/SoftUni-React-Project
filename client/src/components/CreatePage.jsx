@@ -44,6 +44,13 @@ const CreatePage = () => {
 
     const publishHandler = async (e) => {
         e.preventDefault();
+        const trimedFormValues = {};
+        Object.entries(formValues).forEach(([key, value]) => {
+            trimedFormValues[key] = value;
+            if (key != 'equipmentId') {
+                trimedFormValues[key] = value.trim();                
+            }
+        });
 
         const options = {
             method: 'POST',
@@ -53,8 +60,8 @@ const CreatePage = () => {
 
         // return console.log(formValues);
         try {
-            entireFormValidator();
-            options.body = JSON.stringify(formValues);
+            entireFormValidator(trimedFormValues);
+            options.body = JSON.stringify(trimedFormValues);
             // console.log(options.body);
             const response = await fetch('http://localhost:3030/data/cars', options);
             const newCar = await response.json();
@@ -83,11 +90,11 @@ const CreatePage = () => {
         }
     }
 
-    function entireFormValidator() {
+    function entireFormValidator(trimedFormValues) {
         // console.log(e.target.name);
         // console.log(formValues);
         const errors = {};
-        for (const [key, value] of Object.entries(formValues)) {
+        for (const [key, value] of Object.entries(trimedFormValues)) {
             // console.log(key, value);
             if (value === '') {
                 errors[key] = `${key} is required!`;

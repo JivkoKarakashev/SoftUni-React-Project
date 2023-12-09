@@ -12,7 +12,9 @@ const EquipmentItem = ({
         <li className={tooltipStyles["custom-tooltip"]}>
             <img className={`${styles["facility-icon"]}`} src={image} />
             <span> {name}</span>
-            <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{description}</li>
+            <ul>
+                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{description}</li>
+            </ul>
         </li>
     );
 };

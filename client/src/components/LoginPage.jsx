@@ -30,10 +30,14 @@ const LoginPage = () => {
         setshowErrorFields(formInitialState);
         setShowErrorBox(formInitialState);
         e.preventDefault();
+        const trimedFormValues = {};
+        Object.entries(formValues).forEach(([key, value]) => {
+            trimedFormValues[key] = value.trim();
+        });
 
         try {
-            entireFormValidator();
-            await onLogin(formValues);
+            entireFormValidator(trimedFormValues);
+            await onLogin(trimedFormValues);
         } catch (err) {
             if (err.status == 403) {
                 const error = await err.json();
@@ -64,11 +68,11 @@ const LoginPage = () => {
         }
     }
 
-    function entireFormValidator() {
+    function entireFormValidator(trimedFormValues) {
         // console.log(e.target.name);
         // console.log(formValues);
         const errors = {};
-        for (const [key, value] of Object.entries(formValues)) {
+        for (const [key, value] of Object.entries(trimedFormValues)) {
             // console.log(key, value);
             if (value === '') {
                 errors[key] = `${key} is required!`;

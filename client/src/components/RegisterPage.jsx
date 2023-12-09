@@ -32,10 +32,14 @@ const RegisterPage = () => {
         setshowErrorFields(formInitialState);
         setShowErrorBox(formInitialState);
         e.preventDefault();
+        const trimedFormValues = {};
+        Object.entries(formValues).forEach(([key, value]) => {
+            trimedFormValues[key] = value.trim();
+        });
 
         try {
-            entireFormValidator();
-            await onRegister(formValues);
+            entireFormValidator(trimedFormValues);
+            await onRegister(trimedFormValues);
         } catch (err) {
             let error = err;
             if (err.status == 409) {
@@ -67,11 +71,11 @@ const RegisterPage = () => {
         }
     }
 
-    function entireFormValidator() {
+    function entireFormValidator(trimedFormValues) {
         // console.log(e.target.name);
         // console.log(formValues);
         const errors = {};
-        for (const [key, value] of Object.entries(formValues)) {
+        for (const [key, value] of Object.entries(trimedFormValues)) {
             // console.log(key, value);
             if (value === '') {
                 errors[key] = `${key} is required!`;

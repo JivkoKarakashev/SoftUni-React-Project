@@ -40,9 +40,10 @@ const SearchPage = () => {
 
     const searchHandler = async (e) => {
         e.preventDefault();
-        const { make, model } = formValues;
-        const from = formValues.from || 1900;
-        const to = formValues.to || 2023;
+        const make = formValues.make.trim();
+        const model = formValues.model.trim();
+        const from = formValues.from.trim() || 1900;
+        const to = formValues.to.trim() || 2023;
         // console.log(make);
         // console.log(model);
         // console.log(from);
